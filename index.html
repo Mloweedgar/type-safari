@@ -40,12 +40,15 @@
   .topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px;
     background:linear-gradient(180deg,var(--navy2),var(--navy));border-radius:18px;padding:9px 14px;
     box-shadow:0 6px 0 var(--navy-dark),0 12px 22px rgba(0,0,0,.22);}
+  .secretbtn{border:none;background:transparent;padding:0;margin:0;color:inherit;font:inherit;text-align:left;cursor:default;}
   .logo{display:flex;align-items:center;gap:11px;font-weight:bold;font-size:23px;color:#fff;}
   .logo .badge{background:var(--card);border-radius:13px;padding:5px 11px;box-shadow:0 2px 7px rgba(0,0,0,.28);display:flex;align-items:center;}
   .logo .badge img{height:30px;display:block;}
   .logo .word b{color:var(--gold);}
   .brandmark{display:flex;justify-content:center;margin:2px auto 10px;}
   .brandmark img{height:58px;background:#fff;border-radius:18px;padding:11px 20px;box-shadow:var(--shadow);}
+  .adminbtn{opacity:.14;padding:7px 10px;font-size:18px;line-height:1;box-shadow:none;background:rgba(255,255,255,.72);color:#7a6a52;min-width:36px;}
+  .adminbtn:hover,.adminbtn:focus{opacity:.45;}
   .toprt{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
   .chip{background:#fff;border-radius:16px;padding:7px 13px;font-size:15px;font-weight:bold;box-shadow:var(--shadow);display:flex;align-items:center;gap:5px;}
   .iconbtn{background:#fff;border:none;border-radius:14px;padding:8px 12px;font-size:15px;cursor:pointer;box-shadow:var(--shadow);font-family:inherit;font-weight:bold;}
@@ -148,6 +151,55 @@
   @keyframes keyhit{from{transform:translateY(4px);filter:brightness(1.35)}to{transform:none}}
   .fingerlegend{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:9px;font-size:10px;}
   .fingerlegend span{padding:3px 7px;border-radius:9px;color:#222;font-weight:bold;}
+  .missioncard{margin:0 auto 14px;max-width:720px;padding:16px 18px;background:linear-gradient(180deg,#fffaf0,#fff2bf);}
+  .missioncard.done{background:linear-gradient(180deg,#f3ffe8,#dff7b8);}
+  .missionrow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .missiontitle{font-size:20px;font-weight:900;color:#5a3e00;}
+  .missionmeta{font-size:13px;color:#7a6a52;margin-top:5px;}
+  .missionbar{margin-top:10px;height:16px;border-radius:999px;background:#eadfbf;overflow:hidden;box-shadow:inset 0 2px 5px rgba(0,0,0,.08);}
+  .missionfill{height:100%;width:0;background:linear-gradient(90deg,var(--sun),var(--grass));transition:width .35s ease;}
+  .missionbadge{min-width:76px;text-align:center;background:#fff;border-radius:14px;padding:8px 12px;font-weight:900;box-shadow:var(--shadow);}
+  .lessonmascot{margin:6px 0 12px;}
+  .lessonmascot .mascot{width:78px;flex-basis:78px;}
+  .stickerbox{margin:10px auto 0;max-width:460px;background:linear-gradient(180deg,#fff8d5,#ffe7a2);border-radius:18px;padding:14px 16px;
+    box-shadow:var(--shadow);color:#5a3e00;}
+  .stickerbox .top{font-size:13px;font-weight:bold;letter-spacing:.3px;text-transform:uppercase;}
+  .stickerbox .big{font-size:46px;line-height:1;margin:6px 0 4px;}
+  .stickerbox .name{font-size:21px;font-weight:900;}
+  .stickerbox .sub{font-size:13px;color:#7a6a52;margin-top:4px;}
+  .stickershelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:12px;margin-bottom:18px;}
+  .sticker{background:linear-gradient(180deg,#fff,#fff6dc);border-radius:18px;padding:12px 10px;text-align:center;box-shadow:var(--shadow);border:4px solid #fff;}
+  .sticker.locked{filter:grayscale(.95);opacity:.65;}
+  .sticker .big{font-size:36px;line-height:1;margin-bottom:6px;}
+  .sticker .name{font-size:13px;font-weight:900;color:#5a3e00;}
+  .sticker .tiny{font-size:11px;color:#8a7a60;margin-top:3px;}
+  .modalbackdrop{position:fixed;inset:0;background:rgba(7,14,46,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:70;}
+  .modalbackdrop.open{display:flex;}
+  .adminpanel{width:min(420px,100%);background:#fff;border-radius:24px;padding:22px 20px;box-shadow:0 18px 40px rgba(0,0,0,.28);}
+  .adminpanel h2{margin:0 0 6px;color:var(--navy);}
+  .adminpanel p{margin:0 0 12px;color:#6a5b44;}
+  .adminpanel input{width:100%;font-family:inherit;font-size:17px;padding:11px 14px;border-radius:14px;border:3px solid #d9d2c1;outline:none;margin-top:10px;}
+  .adminrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .adminrow .btn{margin-top:10px;}
+  .adminstatus{min-height:22px;font-size:13px;font-weight:bold;color:#5a4a32;margin-top:12px;}
+  .adminstatus.bad{color:#b42318;}
+  .helpbtn{background:#fff8d5;color:#5a3e00;}
+  .guidepanel{width:min(760px,100%);max-height:min(88vh,760px);overflow:auto;background:#fff;border-radius:28px;padding:24px 22px;
+    box-shadow:0 18px 40px rgba(0,0,0,.28);}
+  .guidetop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .guidetop h2{margin:0;color:var(--navy);}
+  .guidelead{margin:8px 0 0;color:#6a5b44;font-size:15px;}
+  .guidegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0;}
+  .guidecard{background:linear-gradient(180deg,#fffdf3,#fff3c7);border-radius:20px;padding:16px 14px;box-shadow:var(--shadow);text-align:center;}
+  .guidecard .icon{font-size:40px;line-height:1;}
+  .guidecard h3{margin:8px 0 6px;font-size:18px;color:#5a3e00;}
+  .guidecard p{margin:0;color:#6a5b44;font-size:13px;line-height:1.4;}
+  .guidenote{background:#eef9ff;border-left:8px solid var(--tzblue);border-radius:18px;padding:14px 16px;color:#234a63;font-size:14px;}
+  .teacherhelp{margin-top:14px;background:linear-gradient(180deg,#fffdf3,#fff3c7);border-radius:18px;padding:12px 14px;color:#5a3e00;}
+  .teacherhelp summary{cursor:pointer;font-weight:900;color:var(--navy);}
+  .teacherhelp p{margin:10px 0 0;color:#6a5b44;font-size:13px;line-height:1.45;}
+  .teacherhelp ul{margin:10px 0 0 18px;padding:0;color:#6a5b44;font-size:13px;line-height:1.45;}
+  .teacherhelp li+li{margin-top:6px;}
 
   /* results */
   .result-stars{font-size:64px;text-align:center;letter-spacing:8px;margin:8px 0;}
@@ -205,6 +257,8 @@
     .passage{font-size:23px;} .passage.long{font-size:19px;} .key{height:42px;font-size:15px;}
     h1.title{font-size:24px;} #gameArea{height:320px;} .mascot{width:74px;flex-basis:74px;}
     .key.spec{font-size:8px;} .kb{padding:6px;} .kbrow{gap:3px;}
+    .missiontitle{font-size:17px;}
+    .stickershelf{grid-template-columns:repeat(2,minmax(0,1fr));}
   }
 </style>
 </head>
@@ -215,28 +269,35 @@
 
 <div class="wrap">
   <div class="topbar" id="topbar" style="display:none;">
-    <div class="logo"><span class="badge"><img src="spa-logo.png" alt="Start Point Academy"></span><span class="word">Type <b>Safari</b></span></div>
+    <button type="button" class="secretbtn logo" id="adminTopTap"><span class="badge"><img src="spa-logo.png" alt="Start Point Academy"></span><span class="word">Type <b>Safari</b></span></button>
     <div class="toprt">
       <div class="chip" id="userChip">🧒🏾 <span id="userName"></span></div>
       <div class="chip">⭐ <span id="starCount">0</span></div>
+      <div class="chip" id="missionChip">🎯 <span id="missionChipText">0/1</span></div>
       <button class="iconbtn" id="passportBtn">📔 Passport</button>
       <button class="iconbtn" id="installBtn" style="display:none;background:var(--sun);">⬇ Install app</button>
+      <button class="iconbtn helpbtn" id="helpBtn">❓ Help</button>
       <button class="iconbtn" id="soundBtn">🔊</button>
       <button class="iconbtn" id="switchBtn">🔄 Switch</button>
+      <button class="iconbtn adminbtn" id="adminBtn" aria-label="Teacher reset" title="Teacher reset">…</button>
     </div>
   </div>
 
   <!-- ===== WELCOME / REGISTER ===== -->
   <section id="welcome" class="screen active">
-    <div class="brandmark"><img src="spa-logo.png" alt="Start Point Academy"></div>
+    <button type="button" class="secretbtn brandmark" id="adminWelcomeTap"><img src="spa-logo.png" alt="Start Point Academy"></button>
     <h1 class="title" style="font-size:36px;">🦒 Type Safari</h1>
-    <p class="subtitle">Twiga's journey across Tanzania — learn to type like a champion!</p>
+    <p class="subtitle">Twiga's journey across Tanzania — jifunze kuandika kama bingwa!</p>
+    <div class="center" style="margin-bottom:14px;">
+      <button class="iconbtn helpbtn" id="helpWelcomeBtn">❓ How to play · Jinsi ya kucheza</button>
+      <button class="iconbtn adminbtn" id="adminWelcomeBtn" aria-label="Teacher reset" title="Teacher reset" style="margin-left:6px;">…</button>
+    </div>
     <div class="panel">
-      <h2 style="text-align:center;color:var(--grass-dark);margin:2px 0 14px;">Who is typing today?</h2>
+      <h2 style="text-align:center;color:var(--grass-dark);margin:2px 0 14px;">Who is typing today? · Nani anaandika leo?</h2>
       <div class="profiles" id="profiles"></div>
       <div id="newForm" class="nameform" style="display:none;">
         <input id="nameInput" maxlength="16" placeholder="Type your name…" autocomplete="off">
-        <button class="btn small gold" id="startNew">Start ➡</button>
+        <button class="btn small gold" id="startNew">Start / Anza ➡</button>
       </div>
     </div>
   </section>
@@ -244,13 +305,23 @@
   <!-- ===== MAP ===== -->
   <section id="home" class="screen">
     <h1 class="title">Your journey across Tanzania 🇹🇿</h1>
-    <p class="subtitle">Finish a stop to travel onward — and unlock games to play!</p>
+    <p class="subtitle">Finish a stop to travel onward — endelea na safari na ufunge michezo!</p>
     <div class="mascot-row">
       <div id="homeMascot" class="mascot"></div>
       <div class="bubble" id="homeBubble"><span class="who">Twiga:</span> Karibu! Let's start at Stop 1. 👇</div>
     </div>
+    <div class="panel missioncard" id="missionCard">
+      <div class="missionrow">
+        <div>
+          <div class="missiontitle" id="missionTitle">🎯 Mission ya leo</div>
+          <div class="missionmeta" id="missionMeta">Finish 1 stop today. / Maliza kituo 1 leo.</div>
+        </div>
+        <div class="missionbadge" id="missionBadge">0/1</div>
+      </div>
+      <div class="missionbar"><div class="missionfill" id="missionFill"></div></div>
+    </div>
     <div class="center" style="margin:2px 0 14px;">
-      <button class="btn sun" id="gamesBtn" style="font-size:21px;">🎮 Play Games</button>
+      <button class="btn sun" id="gamesBtn" style="font-size:21px;">🎮 Play / Cheza</button>
     </div>
     <div class="panel"><div class="levels" id="levelMap"></div></div>
   </section>
@@ -258,9 +329,13 @@
   <!-- ===== LESSON ===== -->
   <section id="lesson" class="screen">
     <div class="lessonhead">
-      <button class="iconbtn" id="lessonBack">⬅ Map</button>
+      <button class="iconbtn" id="lessonBack">⬅ Map / Ramani</button>
       <div class="stat" id="lessonTitle" style="box-shadow:none;background:transparent;font-size:18px;min-width:0;"></div>
       <div style="width:64px"></div>
+    </div>
+    <div class="mascot-row lessonmascot">
+      <div id="lessonMascot" class="mascot"></div>
+      <div class="bubble" id="lessonBubble"><span class="who">Twiga:</span> Fingers ready? Vidole tayari?</div>
     </div>
     <div class="factbox" id="factbox"></div>
     <div class="progress-pills" id="pills"></div>
@@ -291,10 +366,12 @@
         <div class="stat"><span id="rAcc">0</span>%<small>Accuracy</small></div>
         <div class="stat"><span id="rTime">0s</span><small>Time</small></div>
       </div>
+      <div class="stickerbox" id="stickerBox" style="display:none;"></div>
       <div class="reward-banner" id="rewardBanner" style="display:none;"></div>
       <div class="btn-row">
         <button class="btn sun" id="playRewardBtn">🎮 Play a game</button>
         <button class="btn blue" id="nextStopBtn">➡ Next stop</button>
+        <button class="btn gold small" id="rescueBtn" style="display:none;">🐾 Quick practice</button>
         <button class="btn small" id="againStopBtn">🔁 Try again</button>
         <button class="btn small" id="resMapBtn">🗺 Map</button>
       </div>
@@ -303,14 +380,14 @@
 
   <!-- ===== GAMES HUB ===== -->
   <section id="games" class="screen">
-    <h1 class="title">Choose a game! 🎮</h1>
-    <p class="subtitle">Your reward for typing well. Finish more stops to unlock more games!</p>
+    <h1 class="title">Choose a game! · Chagua mchezo! 🎮</h1>
+    <p class="subtitle">Your typing reward. Maliza vituo zaidi kufungua michezo mingine!</p>
     <div class="mascot-row">
       <div id="gamesMascot" class="mascot"></div>
-      <div class="bubble" id="gamesBubble"><span class="who">Twiga:</span> Great work! Pick a game.</div>
+      <div class="bubble" id="gamesBubble"><span class="who">Twiga:</span> Great work! Chagua mchezo.</div>
     </div>
     <div class="panel"><div class="levels" id="gameHub"></div></div>
-    <div class="center" style="margin-top:14px;"><button class="btn" id="gamesBack">⬅ Back to map</button></div>
+    <div class="center" style="margin-top:14px;"><button class="btn" id="gamesBack">⬅ Back to map / Ramani</button></div>
   </section>
 
   <!-- ===== ARCADE ===== -->
@@ -344,12 +421,86 @@
   <!-- ===== PASSPORT ===== -->
   <section id="passport" class="screen">
     <div class="panel">
-      <h1 class="title" style="color:var(--grass-dark);text-shadow:none;">📔 My Tanzania Passport</h1>
+      <h1 class="title" style="color:var(--grass-dark);text-shadow:none;">📔 My Tanzania Passport · Pasipoti yangu</h1>
       <p class="subtitle" id="passportSub"></p>
+      <div class="stickershelf" id="stickerShelf"></div>
       <div class="levels" id="stamps"></div>
-      <div class="center" style="margin-top:16px;"><button class="btn" id="passportBack">⬅ Back to map</button></div>
+      <div class="center" style="margin-top:16px;"><button class="btn" id="passportBack">⬅ Back to map / Ramani</button></div>
     </div>
   </section>
+</div>
+
+<div class="modalbackdrop" id="adminModal">
+  <div class="adminpanel">
+    <h2>Teacher Reset · Mwalimu</h2>
+    <p>Use the passkey to reset progress for one child or the whole device.</p>
+    <div id="adminPassWrap">
+      <input id="adminPass" type="password" placeholder="Passkey / Neno siri">
+      <div class="adminrow">
+        <button class="btn small navy" id="adminUnlock">Unlock</button>
+      </div>
+    </div>
+    <div id="adminActions" style="display:none;">
+      <input id="adminName" placeholder="Student name for named reset">
+      <div class="btn-row" style="margin-top:12px;">
+        <button class="btn small" id="adminResetCurrent">Reset current</button>
+        <button class="btn small blue" id="adminResetNamed">Reset named</button>
+        <button class="btn small gold" id="adminResetAll">Reset all</button>
+      </div>
+    </div>
+    <div class="adminstatus" id="adminStatus"></div>
+    <details class="teacherhelp">
+      <summary>Teacher help · Msaada wa mwalimu</summary>
+      <p>Type Safari teaches keyboard confidence through very short lessons, immediate feedback, rescue practice, games, and passport rewards.</p>
+      <ul>
+        <li>Kids follow glowing keys, finish a stop, earn stars, and collect one sticker per stop.</li>
+        <li>Rescue rounds appear when the same key is missed several times, so support stays targeted and simple.</li>
+        <li>The daily mission is only a gentle nudge, not a limit. A child can keep learning long after it is done.</li>
+        <li>The passkey is <b>spa</b>. Use reset current, reset named, or reset all when you need a clean start.</li>
+      </ul>
+    </details>
+    <div class="center" style="margin-top:10px;"><button class="btn small" id="adminClose">Close</button></div>
+  </div>
+</div>
+
+<div class="modalbackdrop" id="guideModal">
+  <div class="guidepanel">
+    <div class="guidetop">
+      <div>
+        <h2>How to Play · Jinsi ya kucheza</h2>
+        <p class="guidelead">Twiga shows the way. Follow the glowing key, collect stars, and keep travelling across Tanzania.</p>
+      </div>
+      <button class="iconbtn" id="guideCloseTop">✖</button>
+    </div>
+    <div class="guidegrid">
+      <div class="guidecard">
+        <div class="icon">✨</div>
+        <h3>Tap the glow</h3>
+        <p>Gusa key inayong'aa. Twiga tells you which finger to use.</p>
+      </div>
+      <div class="guidecard">
+        <div class="icon">⭐</div>
+        <h3>Finish a stop</h3>
+        <p>Maliza kituo kimoja to earn stars and move to the next place.</p>
+      </div>
+      <div class="guidecard">
+        <div class="icon">🐾</div>
+        <h3>Quick rescue</h3>
+        <p>If one key feels tricky, rescue practice pops up and makes it easier.</p>
+      </div>
+      <div class="guidecard">
+        <div class="icon">🎒</div>
+        <h3>Collect rewards</h3>
+        <p>Shinda stickers, play games, and fill your passport like a safari bingwa.</p>
+      </div>
+    </div>
+    <div class="guidenote">
+      <b>Good to know:</b> the mission helps you start, but it never stops you. Ukimaliza, unaweza kuendelea kucheza na kujifunza.
+    </div>
+    <div class="btn-row">
+      <button class="btn sun" id="guideStartBtn">Twende! Let's play</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -392,7 +543,7 @@ const STOPS = [
     lines:["vvv nnn","ccc mmm","van can","nice come move","mince cover","we can move on the calm van"] },
 
   { id:"s8", emoji:"🦴", name:"Cradle of People", place:"Oldupai Gorge",
-    fact:"<b>Oldupai Gorge</b> (Olduvai) is called the <b>Cradle of Mankind</b> — some of the oldest human bones on Earth were found there.",
+    fact:"<b>Oldupai Gorge</b>, also widely known as <b>Olduvai Gorge</b>, is one of the world's most famous places for learning about early humans. Important fossils and stone tools were found there.",
     focus:"Bottom row: B X Z , .", reward:null,
     lines:["bbb xxx","zzz ,,, ...","box buzz","zebra brave","mix, zoom, buzz.","a big brave zebra ran by."] },
 
@@ -402,17 +553,17 @@ const STOPS = [
     lines:["twiga simba tembo","paka mbwa ndege","safari grass trees","the tall twiga eats green leaves","many animals live in the park"] },
 
   { id:"s10", emoji:"🇹🇿", name:"Our Flag", place:"Civics",
-    fact:"The flag has four colours: <b>green</b> is the land, <b>yellow</b> is minerals, <b>black</b> is the people, and <b>blue</b> is the water.",
+    fact:"The flag has four colours: <b>green</b> is the land and plants, <b>gold</b> is mineral wealth, <b>black</b> is the people, and <b>blue</b> is the ocean, lakes, and rivers.",
     focus:"CAPITAL letters (Shift)", reward:null,
     lines:["Tanzania","Dodoma Dar Mwanza","Green Yellow Black Blue","We All Love Tanzania","Our Flag Is Very Beautiful"] },
 
   { id:"s11", emoji:"🏝️", name:"Ancient City", place:"Kilwa Kisiwani",
-    fact:"<b>Kilwa Kisiwani</b> was a rich Swahili trading city by the sea, long ago. Traders sailed there to buy gold and cloth.",
+    fact:"<b>Kilwa Kisiwani</b> was a rich Swahili trading city by the sea, long ago. Traders from across the Indian Ocean sailed there for gold and other goods.",
     focus:"Punctuation: ? ! ' :", reward:null,
     lines:["What is your name?","Karibu, my friend!","It's a sunny day.","Note: be neat and calm.","Can you type fast? Yes!"] },
 
   { id:"s12", emoji:"🎉", name:"Freedom — Uhuru", place:"History",
-    fact:"Tanganyika won independence in <b>1961</b>. In <b>1964</b>, Tanganyika and Zanzibar joined to form <b>Tanzania</b>.",
+    fact:"Tanganyika won independence on <b>9 December 1961</b>. On <b>26 April 1964</b>, Tanganyika and Zanzibar united; later that year, the country took the name <b>Tanzania</b>.",
     focus:"Numbers row: 1–0", reward:null,
     lines:["1 2 3 4 5","6 7 8 9 0","Uhuru 1961","Tanzania 1964","Kilimanjaro is 5895 metres high"] },
 
@@ -422,7 +573,7 @@ const STOPS = [
     lines:["Mwalimu Nyerere loved his country.","He said: Uhuru na Umoja!","One nation was born in 1964.","Peace and unity make us strong."] },
 
   { id:"s14", emoji:"🎵", name:"The Anthem", place:"Civics",
-    fact:"Tanzania's national anthem is <b>Mungu ibariki Afrika</b> — God Bless Africa. People sing it with pride at school each week.",
+    fact:"Tanzania's national anthem is <b>Mungu Ibariki Afrika</b> — God Bless Africa. Many schools sing it at assembly with pride.",
     focus:"Short paragraph (speed)", reward:null,
     lines:["We stand and sing with pride.","God bless our land and people.","We work hard and we stay kind.","Together we keep our country clean."] },
 
@@ -436,6 +587,32 @@ const STOPS = [
     focus:"Final passage (speed + accuracy)", reward:null,
     lines:["My name is here and I can type well.","I learned the home row and all the keys.","I know my country from coast to mountain.","I will keep practising every single day.","Asante sana, and welcome to the future!"] },
 ];
+const STICKERS={
+  s1:{emoji:"🥭",name:"Mango sticker"},
+  s2:{emoji:"🚢",name:"Harbour sticker"},
+  s3:{emoji:"🏛️",name:"Capital sticker"},
+  s4:{emoji:"⛰️",name:"Mountain sticker"},
+  s5:{emoji:"🦓",name:"Migration sticker"},
+  s6:{emoji:"🐟",name:"Lake sticker"},
+  s7:{emoji:"🌶️",name:"Spice sticker"},
+  s8:{emoji:"🦴",name:"Fossil sticker"},
+  s9:{emoji:"🦒",name:"Twiga sticker"},
+  s10:{emoji:"🇹🇿",name:"Flag sticker"},
+  s11:{emoji:"⛵",name:"Dhow sticker"},
+  s12:{emoji:"🎆",name:"Uhuru sticker"},
+  s13:{emoji:"📣",name:"Unity sticker"},
+  s14:{emoji:"🎵",name:"Anthem sticker"},
+  s15:{emoji:"🐘",name:"Crater sticker"},
+  s16:{emoji:"🏆",name:"Champion sticker"}
+};
+const MISSION_DEFS=[
+  {type:"stop",target:1,emoji:"🛤️",label:"Finish 1 stop · Maliza 1"},
+  {type:"stars",target:3,emoji:"⭐",label:"Earn 3 stars · Pata 3"},
+  {type:"game",target:1,emoji:"🎮",label:"Play 1 game · Cheza 1"},
+  {type:"accuracy",target:1,emoji:"🎯",label:"Get 95% accuracy · Usahihi 95%"}
+];
+const LESSON_CHEERS=["Nice line!","Vidole vya kasi!","Great typing!","Ndiyo, endelea!"];
+const LESSON_NUDGES=["Almost! Try that key again.","Pole pole, utapata.","Look at the glowing key.","Unaweza!"];
 
 /* ===================== KEYBOARD / FINGERS ===================== */
 const FINGERS={ lp:{c:"var(--red)",n:"left pinky"}, lr:{c:"var(--orange)",n:"left ring"}, lm:{c:"var(--yellow)",n:"left middle"},
@@ -470,18 +647,32 @@ function baseKey(ch){
 /* ===================== STORAGE (multi-user) ===================== */
 function loadDB(){ try{return JSON.parse(localStorage.getItem("typeSafari2"))||{users:{},current:null};}catch(e){return {users:{},current:null};} }
 function saveDB(){ try{localStorage.setItem("typeSafari2",JSON.stringify(DB));}catch(e){} }
+function normalizeProfile(p){
+  if(!p)return p;
+  if(!p.stars)p.stars={};
+  if(!p.best)p.best={};
+  if(typeof p.bestWpm!=="number")p.bestWpm=0;
+  if(!p.stickers)p.stickers={};
+  if(!p.weakKeys)p.weakKeys={};
+  if(typeof p.guideSeen!=="boolean")p.guideSeen=false;
+  if(!p.mission || typeof p.mission!=="object")p.mission=null;
+  return p;
+}
 let DB=loadDB();
+Object.values(DB.users||{}).forEach(normalizeProfile);
 let snd = DB.sound!==false;
-function prof(){ return DB.users[DB.current]; }
+function prof(){ const p=DB.users[DB.current]; return p?normalizeProfile(p):null; }
 function ensureProfile(name){
   name=name.trim().slice(0,16); if(!name) return false;
-  if(!DB.users[name]) DB.users[name]={name,stars:{},best:{},bestWpm:0};
+  if(!DB.users[name]) DB.users[name]={name,stars:{},best:{},bestWpm:0,stickers:{},weakKeys:{},guideSeen:false,mission:null};
+  normalizeProfile(DB.users[name]);
   DB.current=name; saveDB(); return true;
 }
 function starsFor(id){ const p=prof(); return (p&&p.stars[id])||0; }
 function totalStars(){ return STOPS.reduce((s,l)=>s+starsFor(l.id),0); }
 function doneCount(){ return STOPS.filter(s=>starsFor(s.id)>=1).length; }
 function isUnlocked(i){ return i===0 || starsFor(STOPS[i-1].id)>=1; }
+function stickerCount(){ const p=prof(); return p?Object.keys(p.stickers||{}).length:0; }
 
 /* ===================== AUDIO ===================== */
 let actx=null;
@@ -520,7 +711,7 @@ function setMascot(id,mood,anim){ const el=document.getElementById(id); if(!el)r
 /* ===================== NAV / HELPERS ===================== */
 const $=id=>document.getElementById(id);
 function show(scr){ document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active")); $(scr).classList.add("active"); }
-function refreshTop(){ if(!prof())return; $("userName").textContent=prof().name; $("starCount").textContent=totalStars(); $("topbar").style.display="flex"; }
+function refreshTop(){ if(!prof())return; $("userName").textContent=prof().name; $("starCount").textContent=totalStars(); $("topbar").style.display="flex"; updateMissionUI(); }
 function rnd(a){ return a[Math.floor(Math.random()*a.length)]; }
 function buildKeyboard(id){ const kb=$(id); kb.innerHTML="";
   KB_LAYOUT.forEach(row=>{ const r=document.createElement("div"); r.className="kbrow";
@@ -536,11 +727,192 @@ function clearKb(c){ if(c)c.querySelectorAll(".key").forEach(k=>k.classList.remo
 function kbKey(c,ch){ return c?[...c.querySelectorAll(".key")].find(x=>x.dataset.k===ch):null; }
 function buildLegend(){ const l=$("legend"); l.innerHTML=""; const seen={};
   Object.values(FINGERS).forEach(f=>{ if(seen[f.n])return; seen[f.n]=1; const s=document.createElement("span"); s.style.background=f.c+"cc"; s.textContent=f.n; l.appendChild(s); }); }
+function sayTwiga(bubbleId,mascotId,text,mood="happy",anim){
+  const b=$(bubbleId); if(b)b.innerHTML=`<span class="who">Twiga:</span> ${text}`;
+  if(mascotId) setMascot(mascotId,mood,anim);
+}
+let guideRememberOnClose=false;
+let suppressGuideOnce=false;
+function openGuide(remember=false){
+  guideRememberOnClose=remember;
+  $("guideModal").classList.add("open");
+}
+function closeGuide(){
+  $("guideModal").classList.remove("open");
+  if(guideRememberOnClose && prof()){
+    prof().guideSeen=true;
+    saveDB();
+  }
+  guideRememberOnClose=false;
+}
+function maybeOpenGuide(){
+  const p=prof();
+  if(!p)return;
+  if(suppressGuideOnce){ suppressGuideOnce=false; return; }
+  if(p.guideSeen)return;
+  openGuide(true);
+}
+function todayKey(){
+  const d=new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+}
+function missionDef(type){ return MISSION_DEFS.find(m=>m.type===type) || MISSION_DEFS[0]; }
+function pickMission(name,day){
+  const seed=(name+day).split("").reduce((s,ch)=>s+ch.charCodeAt(0),0);
+  return MISSION_DEFS[seed % MISSION_DEFS.length];
+}
+function ensureMission(p){
+  if(!p)return null;
+  const day=todayKey();
+  if(!p.mission || p.mission.date!==day){
+    const def=pickMission(p.name||"",day);
+    p.mission={date:day,type:def.type,target:def.target,progress:0,done:false};
+    saveDB();
+  }
+  return p.mission;
+}
+function missionStatus(){
+  const p=prof(); if(!p)return null;
+  const mission=ensureMission(p); const def=missionDef(mission.type);
+  return {mission,def,progress:Math.min(mission.progress,mission.target),target:mission.target,done:mission.done};
+}
+function updateMissionUI(){
+  const s=missionStatus(); if(!s)return;
+  $("missionTitle").textContent=`${s.def.emoji} ${s.def.label}`;
+  $("missionMeta").textContent=s.done ? "Mission done. Endelea kucheza kadri unavyotaka!" : `Progress / Maendeleo: ${s.progress}/${s.target}`;
+  $("missionFill").style.width=(s.done?100:Math.round((s.progress/s.target)*100))+"%";
+  $("missionBadge").textContent=s.done?"Done!":`${s.progress}/${s.target}`;
+  $("missionChipText").textContent=s.done?"Done":`${s.progress}/${s.target}`;
+  $("missionCard").classList.toggle("done",s.done);
+}
+function advanceMission(type,amount=1){
+  const s=missionStatus(); if(!s || s.done || s.mission.type!==type || amount<=0)return "";
+  s.mission.progress=Math.min(s.target,s.mission.progress+amount);
+  let msg="";
+  if(s.mission.progress>=s.target && !s.mission.done){
+    s.mission.done=true;
+    msg=`${s.def.emoji} Mission complete! Endelea!`;
+    miniConfetti(8);
+  }
+  saveDB(); updateMissionUI(); return msg;
+}
+function missionFromStop(stars,acc){
+  const s=missionStatus(); if(!s || s.done)return "";
+  if(s.mission.type==="stop") return advanceMission("stop",1);
+  if(s.mission.type==="stars") return advanceMission("stars",stars);
+  if(s.mission.type==="accuracy" && acc>=95) return advanceMission("accuracy",1);
+  return "";
+}
+function missionFromGame(){ const s=missionStatus(); return (!s||s.done)?"":(s.mission.type==="game"?advanceMission("game",1):""); }
+function stickerFor(stopId){ return STICKERS[stopId] || {emoji:"🏅",name:"Safari sticker"}; }
+function prettyKey(ch){
+  if(ch===" ")return "Space";
+  return /[a-z]/i.test(ch)?ch.toUpperCase():ch;
+}
+function rescueKeysFrom(errKeys){
+  const ranked=Object.entries(errKeys)
+    .filter(([k,v])=>k!==" " && baseKey(k)!==null && v>=2)
+    .sort((a,b)=>b[1]-a[1]);
+  if(ranked.length) return ranked.slice(0,2).map(([k])=>k);
+  const top=Object.entries(errKeys)
+    .filter(([k,v])=>k!==" " && baseKey(k)!==null && v>=3)
+    .sort((a,b)=>b[1]-a[1])[0];
+  return top?[top[0]]:[];
+}
+function rescueKeyLabel(keys){ return keys.map(prettyKey).join(" and "); }
+function rescueLines(keys){
+  if(keys.length<2){
+    const a=keys[0];
+    return [`${a}${a}${a} ${a}${a}${a}`,`${a} ${a} ${a} ${a}`,`${a}${a} ${a}${a}`,`${a}${a}${a}${a}`];
+  }
+  const [a,b]=keys;
+  return [`${a}${b} ${a}${b} ${a}${b}`,`${b}${a} ${b}${a} ${b}${a}`,`${a}${a}${b}${b}`,`${a} ${b} ${a} ${b}`];
+}
+function freshProfile(name){
+  return {name,stars:{},best:{},bestWpm:0,stickers:{},weakKeys:{},guideSeen:false,mission:null};
+}
+function resetProfileData(name){
+  DB.users[name]=freshProfile(name);
+}
+function exitActiveFlow(){
+  closeGame();
+  if(L&&L.timer)clearInterval(L.timer);
+  L=null;
+  lastStopResult=null;
+  lastStopId=null;
+}
+let adminTapCount=0,adminTapTimer=null;
+function secretAdminTap(){
+  adminTapCount++;
+  if(adminTapTimer)clearTimeout(adminTapTimer);
+  adminTapTimer=setTimeout(()=>{adminTapCount=0;adminTapTimer=null;},15000);
+  if(adminTapCount<5)return;
+  adminTapCount=0;
+  if(adminTapTimer){clearTimeout(adminTapTimer);adminTapTimer=null;}
+  openAdminReset();
+}
+function openAdminReset(){
+  $("adminModal").classList.add("open");
+  $("adminPass").value="";
+  $("adminName").value="";
+  $("adminActions").style.display="none";
+  $("adminPassWrap").style.display="block";
+  setAdminStatus("Enter the teacher passkey.");
+  $("adminPass").focus();
+}
+function closeAdminReset(){
+  $("adminModal").classList.remove("open");
+}
+function setAdminStatus(msg,bad=false){
+  $("adminStatus").textContent=msg;
+  $("adminStatus").className="adminstatus"+(bad?" bad":"");
+}
+function unlockAdmin(){
+  if($("adminPass").value.trim()!=="spa"){ setAdminStatus("Wrong passkey.",true); return; }
+  $("adminActions").style.display="block";
+  $("adminPassWrap").style.display="none";
+  setAdminStatus("Unlocked. Choose a reset action.");
+  $("adminName").focus();
+}
+function finishAdminReset(msg,goWelcome=false){
+  saveDB();
+  exitActiveFlow();
+  buildProfiles();
+  if(goWelcome || !DB.current || !DB.users[DB.current]){
+    $("newForm").style.display="none";
+    $("nameInput").value="";
+    show("welcome");
+  } else {
+    suppressGuideOnce=true;
+    enterApp();
+  }
+  setAdminStatus(msg);
+  setTimeout(closeAdminReset,700);
+}
+function resetCurrentStudent(){
+  if(!DB.current || !DB.users[DB.current]){ setAdminStatus("No current student selected.",true); return; }
+  resetProfileData(DB.current);
+  finishAdminReset(`${DB.current}'s progress was reset.`);
+}
+function resetNamedStudent(){
+  const lower=$("adminName").value.trim().toLowerCase();
+  if(!lower){ setAdminStatus("Type a student name first.",true); return; }
+  const targetName=Object.keys(DB.users).find(name=>name.toLowerCase()===lower) || null;
+  if(!targetName){ setAdminStatus("Student not found.",true); return; }
+  resetProfileData(targetName);
+  finishAdminReset(`${targetName}'s progress was reset.`);
+}
+function resetAllStudents(){
+  DB.users={};
+  DB.current=null;
+  finishAdminReset("All student progress was reset.",true);
+}
 
 /* ===================== WELCOME / PROFILES ===================== */
 function buildProfiles(){
   const box=$("profiles"); box.innerHTML="";
   Object.values(DB.users).forEach(u=>{
+    normalizeProfile(u);
     const total=STOPS.reduce((s,l)=>s+((u.stars[l.id])||0),0);
     const dc=STOPS.filter(l=>(u.stars[l.id]||0)>=1).length;
     const d=document.createElement("div"); d.className="profcard";
@@ -549,12 +921,12 @@ function buildProfiles(){
     box.appendChild(d);
   });
   const add=document.createElement("div"); add.className="profcard add";
-  add.innerHTML='<div class="av">➕</div><div class="nm">New typist</div>';
+  add.innerHTML='<div class="av">➕</div><div class="nm">New typist / Mwanafunzi mpya</div>';
   add.onclick=()=>{ $("newForm").style.display="flex"; $("nameInput").focus(); };
   box.appendChild(add);
   if(Object.keys(DB.users).length===0) $("newForm").style.display="flex";
 }
-function enterApp(){ refreshTop(); buildMap(); setMascot("homeMascot","happy"); $("homeBubble").innerHTML=`<span class="who">Twiga:</span> Karibu, ${prof().name}! Let's travel and type. 🦒`; show("home"); }
+function enterApp(){ if(!prof())return; ensureMission(prof()); refreshTop(); buildMap(); sayTwiga("homeBubble","homeMascot",`Karibu, ${prof().name}! Twende safari ya kuandika. 🦒`,"happy"); show("home"); maybeOpenGuide(); }
 
 /* ===================== MAP ===================== */
 function buildMap(){
@@ -570,17 +942,34 @@ function buildMap(){
     m.appendChild(d);
   });
   refreshTop();
+  updateMissionUI();
 }
 
 /* ===================== LESSON ENGINE (Mavis-style) ===================== */
 let L=null;
+let lastStopId=null;
+let lastStopResult=null;
 function startStop(i){
+  if(L&&L.timer)clearInterval(L.timer);
   const stop=STOPS[i];
-  L={i, stop, lineIdx:0, pos:0, correct:0, errors:0, t0:null, timer:null};
+  L={i, stop, mode:"stop", lineIdx:0, pos:0, correct:0, errors:0, t0:null, timer:null, errKeys:{}};
   $("lessonTitle").textContent=`${stop.emoji} Stop ${i+1}: ${stop.name}`;
   $("factbox").innerHTML=`<b>${stop.place}.</b> ${stop.fact}`;
   buildKeyboard("kbLesson"); buildLegend(); buildPills(); renderLine(); updateStats();
-  if(L.timer)clearInterval(L.timer); L.timer=setInterval(updateStats,500);
+  L.timer=setInterval(updateStats,500);
+  sayTwiga("lessonBubble","lessonMascot",`Tap the glowing keys for ${stop.name}! Gusa key inayong'aa!`,"happy");
+  show("lesson");
+}
+function startRescue(keys){
+  if(!lastStopResult || !keys.length)return;
+  if(L&&L.timer)clearInterval(L.timer);
+  const label=rescueKeyLabel(keys);
+  L={i:lastStopResult.i, stop:{id:lastStopResult.stopId,emoji:"🐾",name:"Quick Practice",place:"Rescue Round",fact:`Let's practice <b>${label}</b> together.`,lines:rescueLines(keys)}, mode:"rescue", lineIdx:0, pos:0, correct:0, errors:0, t0:null, timer:null, errKeys:{}, rescueKeys:keys.slice()};
+  $("lessonTitle").textContent=`🐾 Quick Practice`;
+  $("factbox").innerHTML=`<b>Twiga Rescue Round.</b> Let's practice <b>${label}</b> together.`;
+  buildKeyboard("kbLesson"); buildLegend(); buildPills(); renderLine(); updateStats();
+  L.timer=setInterval(updateStats,500);
+  sayTwiga("lessonBubble","lessonMascot",`Let's make ${label} easy-peasy! Tuifanye iwe rahisi!`,"happy");
   show("lesson");
 }
 function buildPills(){ const p=$("pills"); p.innerHTML=""; L.stop.lines.forEach((_,i)=>{ const s=document.createElement("div"); s.id="pl"+i; p.appendChild(s); }); markPills(); }
@@ -590,6 +979,9 @@ function renderLine(){
   const line=curLine(); const box=$("passage"); box.innerHTML=""; box.className="passage"+(line.length>34?" long":"");
   for(let i=0;i<line.length;i++){ const sp=document.createElement("span"); sp.className="pch"; sp.textContent=line[i]===" "?" ":line[i];
     if(i<L.pos)sp.classList.add("done"); if(i===L.pos)sp.classList.add("cur"); box.appendChild(sp); }
+  if(L.lineIdx===L.stop.lines.length-1 && L.pos===0){
+    sayTwiga("lessonBubble","lessonMascot",L.mode==="rescue"?"Last rescue line!":"Last line! Unaweza!","happy","bounce");
+  }
   fingerHint(); markPills();
 }
 function fingerHint(){
@@ -612,8 +1004,12 @@ function handleLessonKey(input){
     if(L.pos>=line.length){ lineDone(); }
     else { if(spans[L.pos])spans[L.pos].classList.add("cur"); fingerHint(); sGood(); }
   } else {
-    L.errors++; sBad(); if(spans[L.pos]){spans[L.pos].classList.add("err"); setTimeout(()=>{if(spans[L.pos])spans[L.pos].classList.remove("err");},200);}
-    setMascot("homeMascot","sad"); // no-op if not visible
+    L.errors++;
+    const miss=/[a-z]/i.test(target)?target.toLowerCase():target;
+    L.errKeys[miss]=(L.errKeys[miss]||0)+1;
+    sBad();
+    if(spans[L.pos]){spans[L.pos].classList.add("err"); setTimeout(()=>{if(spans[L.pos])spans[L.pos].classList.remove("err");},200);}
+    if(L.errors===1 || L.errors%3===0) sayTwiga("lessonBubble","lessonMascot",rnd(LESSON_NUDGES),"sad","shake");
   }
   updateStats();
 }
@@ -621,8 +1017,13 @@ function flashLessonKey(ch){ const k=kbKey($("kbLesson"),baseKey(ch)); if(k){k.c
 function lineDone(){
   sWord();
   L.lineIdx++; L.pos=0;
-  if(L.lineIdx>=L.stop.lines.length){ if(L.timer)clearInterval(L.timer); setTimeout(finishStop,350); }
-  else { markPills(); setTimeout(renderLine,220); }
+  if(L.lineIdx>=L.stop.lines.length){
+    if(L.timer)clearInterval(L.timer);
+    setTimeout(()=>{ if(L.mode==="rescue") finishRescue(); else finishStop(); },350);
+  } else {
+    sayTwiga("lessonBubble","lessonMascot",L.mode==="rescue"?"Nice save! One more bit!":""+rnd(LESSON_CHEERS),"happy","bounce");
+    markPills(); setTimeout(renderLine,220);
+  }
 }
 function stats(){
   const att=L.correct+L.errors;
@@ -632,22 +1033,50 @@ function stats(){
   return {acc,wpm:isFinite(wpm)?wpm:0,secs};
 }
 function updateStats(){ if(!L)return; const s=stats(); $("sWpm").textContent=s.wpm; $("sAcc").textContent=s.acc; $("sErr").textContent=L.errors; $("sTime").textContent=s.secs+"s"; }
+function showStopResults(result,rescueNote=""){
+  const s=result.stats;
+  const sticker=stickerFor(result.stopId);
+  $("rWpm").textContent=s.wpm; $("rAcc").textContent=s.acc; $("rTime").textContent=s.secs+"s";
+  const sc=$("resStars"); sc.innerHTML=""; for(let i=0;i<3;i++){ const sp=document.createElement("span"); sp.className="pop"; sp.style.animationDelay=(i*0.22)+"s"; sp.textContent=i<result.stars?"⭐":"☆"; sc.appendChild(sp); }
+  $("resTitle").textContent = result.stars===3?"Bingwa! 🏆":result.stars===2?"Hongera! 🎉":"Vizuri! 👏";
+  const rescueText=rescueNote?`Nice save! ${rescueNote}`:(result.stars===3?"Perfect typing! Wewe ni bingwa!":result.stars===2?"Great job! Try for 3 stars next time!":"Well done! Practice kidogo and you'll get more stars!");
+  sayTwiga("resBubble","resMascot",rescueText,"happy","bounce");
+  $("stickerBox").style.display="block";
+  $("stickerBox").innerHTML=`<div class="top">${result.newSticker?"New sticker unlocked!":"Sticker collected!"}</div>
+    <div class="big">${sticker.emoji}</div>
+    <div class="name">${sticker.name}</div>
+    <div class="sub">Tap Passport to see your sticker book grow.</div>`;
+  const lines=[];
+  const g=GAMES[result.stopId];
+  if(g) lines.push(`🎮 Game ready: <b>${g.emoji} ${g.name}</b>`);
+  if(result.missionMsg) lines.push(`<b>${result.missionMsg}</b>`);
+  if(result.rescueKeys && result.rescueKeys.length && !rescueNote) lines.push(`🐾 Need help with <b>${rescueKeyLabel(result.rescueKeys)}</b>? Tap Quick practice.`);
+  $("rewardBanner").style.display=lines.length?"block":"none";
+  $("rewardBanner").innerHTML=lines.join("<br>");
+  $("rescueBtn").style.display=result.rescueKeys && result.rescueKeys.length && !rescueNote ? "inline-block" : "none";
+  if(result.rescueKeys && result.rescueKeys.length) $("rescueBtn").textContent=`🐾 Practice ${rescueKeyLabel(result.rescueKeys)}`;
+  const last=result.i>=STOPS.length-1; $("nextStopBtn").style.display=last?"none":"inline-block";
+  refreshTop(); show("results");
+}
 function finishStop(){
   const s=stats();
   let stars=1; if(s.acc>=85)stars=2; if(s.acc>=95)stars=3;
   const p=prof(); p.stars[L.stop.id]=Math.max(p.stars[L.stop.id]||0,stars);
-  if(s.wpm>(p.bestWpm||0))p.bestWpm=s.wpm; saveDB();
+  const newSticker=!p.stickers[L.stop.id];
+  p.stickers[L.stop.id]=1;
+  Object.entries(L.errKeys).forEach(([k,v])=>{ p.weakKeys[k]=(p.weakKeys[k]||0)+v; });
+  if(s.wpm>(p.bestWpm||0))p.bestWpm=s.wpm;
+  saveDB();
   lastStopId=L.stop.id;
-
-  $("rWpm").textContent=s.wpm; $("rAcc").textContent=s.acc; $("rTime").textContent=s.secs+"s";
-  const sc=$("resStars"); sc.innerHTML=""; for(let i=0;i<3;i++){ const sp=document.createElement("span"); sp.className="pop"; sp.style.animationDelay=(i*0.22)+"s"; sp.textContent=i<stars?"⭐":"☆"; sc.appendChild(sp); }
-  $("resTitle").textContent = stars===3?"Bingwa! 🏆":stars===2?"Hongera! 🎉":"Vizuri! 👏";
-  setMascot("resMascot","happy","bounce");
-  $("resBubble").innerHTML = `<span class="who">Twiga:</span> `+(stars===3?"Perfect typing! You are a champion!":stars===2?"Great job! Try for 3 stars next time!":"Well done! A little more practice and you'll get more stars!");
-  const g=GAMES[L.stop.id]; const rb=$("rewardBanner"); rb.style.display="block";
-  rb.innerHTML = g ? `🎉 You unlocked a game: <b>${g.emoji} ${g.name}</b>! Tap “Play your game”.` : "🎮 Great work!";
-  const last=L.i>=STOPS.length-1; $("nextStopBtn").style.display=last?"none":"inline-block";
-  sWin(); bigConfetti(); refreshTop(); show("results");
+  lastStopResult={i:L.i,stopId:L.stop.id,stats:s,stars,newSticker,missionMsg:missionFromStop(stars,s.acc),rescueKeys:rescueKeysFrom(L.errKeys)};
+  sWin(); bigConfetti(); showStopResults(lastStopResult);
+}
+function finishRescue(){
+  const p=prof(); if(p) L.rescueKeys.forEach(k=>{ p.weakKeys[k]=Math.max(0,(p.weakKeys[k]||0)-2); });
+  saveDB();
+  if(lastStopResult){ lastStopResult.rescueKeys=[]; }
+  sWin(); miniConfetti(10);
+  showStopResults(lastStopResult||{i:L.i,stopId:L.stop.id,stats:stats(),stars:1,newSticker:false,missionMsg:"",rescueKeys:[]},`You practiced ${rescueKeyLabel(L.rescueKeys)}.`);
 }
 
 /* ===================== GAMES — one themed game per stop ===================== */
@@ -682,7 +1111,6 @@ const GAMES={
   s16:{name:"Graduation Parade",emoji:"🏆",engine:"progress",mode:"race",words:["I can type fast.","I know my keys.","I love Tanzania.","I am a champion!"],avatar:"🎓",opp:"🥁",scene:"crowd",hint:"Type each cheer to lead the parade!"}
 };
 const GAME_ORDER=STOPS.map(s=>s.id);
-let lastStopId=null;
 function gameUnlocked(stopId){ return starsFor(stopId)>=1; }
 
 let G=null;
@@ -696,10 +1124,10 @@ function openGamesHub(){ closeGame(); const hub=$("gameHub"); hub.innerHTML="";
       <div class="sub">${unlocked?g.hint.slice(0,40):('Finish Stop '+(i+1)+' to unlock')}</div>
       <div class="sub" style="color:#a08a66">${unlocked?('Best: ⭐ '+best):'🔒'}</div>`;
     if(unlocked) d.onclick=()=>openGame(sid);
-    else d.onclick=()=>{ setMascot("gamesMascot","sad","shake"); $("gamesBubble").innerHTML=`<span class="who">Twiga:</span> Finish Stop ${i+1} first to open this game!`; sBad(); };
+    else d.onclick=()=>{ sayTwiga("gamesBubble","gamesMascot",`Finish Stop ${i+1} first to open this game!`,"sad","shake"); sBad(); };
     hub.appendChild(d);
   });
-  setMascot("gamesMascot","happy"); $("gamesBubble").innerHTML=`<span class="who">Twiga:</span> ${doneCount()} of ${STOPS.length} games unlocked. Pick one!`; show("games");
+  sayTwiga("gamesBubble","gamesMascot",`${doneCount()} of ${STOPS.length} games unlocked. Chagua moja!`,"happy"); show("games");
 }
 function openGame(stopId){
   closeGame(); const def=GAMES[stopId]; if(!def)return;
@@ -817,13 +1245,22 @@ function endGame(win){
     line=`⭐ ${G.score} · ${isFinite(wpm)?wpm:0} wpm`; setMascot("goMascot",win?"happy":"sad",win?"bounce":"shake");
   } else { title=G.score>0?"Hongera! 🎉":"Game over"; bub=G.score>=120?"Bingwa! Amazing!":G.score>=50?"Great job! Play again to beat your score!":"Good try! Keep playing!";
     line=`You scored ⭐ ${G.score}`; setMascot("goMascot","happy","bounce"); }
+  const missionMsg=missionFromGame();
   $("goTitle").textContent=title; $("goBubble").innerHTML=`<span class="who">Twiga:</span> `+bub; $("goScore").textContent=line;
+  if(missionMsg) $("goScore").textContent=`${line} · ${missionMsg}`;
   if(win || eng!=="progress"){ sWin(); bigConfetti(); } refreshTop();
 }
 
 /* ===================== PASSPORT ===================== */
 function buildPassport(){
-  $("passportSub").textContent=`${prof().name} · ⭐ ${totalStars()} stars · best speed ${prof().bestWpm||0} words/min`;
+  $("passportSub").textContent=`${prof().name} · ⭐ ${totalStars()} stars · 🎒 ${stickerCount()}/${STOPS.length} stickers · best speed ${prof().bestWpm||0} words/min`;
+  const shelf=$("stickerShelf"); shelf.innerHTML="";
+  STOPS.forEach(lv=>{
+    const got=!!prof().stickers[lv.id], st=stickerFor(lv.id);
+    const d=document.createElement("div"); d.className="sticker"+(got?"":" locked");
+    d.innerHTML=`<div class="big">${got?st.emoji:"❔"}</div><div class="name">${got?st.name:"Mystery sticker"}</div><div class="tiny">${got?"Collected!":"Finish the stop"}</div>`;
+    shelf.appendChild(d);
+  });
   const g=$("stamps"); g.innerHTML="";
   STOPS.forEach((lv,i)=>{ const st=starsFor(lv.id); const d=document.createElement("div"); d.className="lvl"+(st?"":" locked");
     d.style.cursor="default";
@@ -849,10 +1286,15 @@ document.addEventListener("keydown",e=>{
 });
 $("startNew").onclick=()=>{ const v=$("nameInput").value; if(v.trim()){ if(ensureProfile(v)) enterApp(); } else $("nameInput").focus(); };
 $("switchBtn").onclick=()=>{ closeGame(); if(L&&L.timer)clearInterval(L.timer); buildProfiles(); $("newForm").style.display="none"; $("nameInput").value=""; show("welcome"); };
-$("lessonBack").onclick=()=>{ if(L&&L.timer)clearInterval(L.timer); buildMap(); show("home"); };
+$("helpBtn").onclick=()=>openGuide(false);
+$("helpWelcomeBtn").onclick=()=>openGuide(false);
+$("guideCloseTop").onclick=closeGuide;
+$("guideStartBtn").onclick=closeGuide;
+$("lessonBack").onclick=()=>{ if(L&&L.timer)clearInterval(L.timer); if(L&&L.mode==="rescue"&&lastStopResult) showStopResults(lastStopResult); else { buildMap(); show("home"); } };
 $("resMapBtn").onclick=()=>{ buildMap(); show("home"); };
 $("againStopBtn").onclick=()=>startStop(L.i);
 $("nextStopBtn").onclick=()=>{ const ni=L.i+1; if(ni<STOPS.length&&isUnlocked(ni))startStop(ni); else {buildMap();show("home");} };
+$("rescueBtn").onclick=()=>{ if(lastStopResult&&lastStopResult.rescueKeys&&lastStopResult.rescueKeys.length) startRescue(lastStopResult.rescueKeys); };
 $("playRewardBtn").onclick=()=>{ if(lastStopId&&gameUnlocked(lastStopId)) openGame(lastStopId); else openGamesHub(); };
 $("gamesBtn").onclick=()=>openGamesHub();
 $("gamesBack").onclick=()=>{ closeGame(); buildMap(); show("home"); };
@@ -863,6 +1305,19 @@ $("goMap").onclick=()=>{ closeGame(); buildMap(); show("home"); };
 $("passportBtn").onclick=()=>{ buildPassport(); show("passport"); };
 $("passportBack").onclick=()=>{ buildMap(); show("home"); };
 $("soundBtn").onclick=()=>{ snd=!snd; DB.sound=snd; saveDB(); $("soundBtn").textContent=snd?"🔊":"🔇"; if(snd)sGood(); };
+$("adminBtn").onclick=openAdminReset;
+$("adminWelcomeBtn").onclick=openAdminReset;
+$("adminTopTap").onclick=secretAdminTap;
+$("adminWelcomeTap").onclick=secretAdminTap;
+$("adminUnlock").onclick=unlockAdmin;
+$("adminClose").onclick=closeAdminReset;
+$("adminResetCurrent").onclick=resetCurrentStudent;
+$("adminResetNamed").onclick=resetNamedStudent;
+$("adminResetAll").onclick=resetAllStudents;
+$("adminPass").addEventListener("keydown",e=>{ if(e.key==="Enter") unlockAdmin(); });
+$("adminName").addEventListener("keydown",e=>{ if(e.key==="Enter") resetNamedStudent(); });
+$("guideModal").onclick=e=>{ if(e.target===$("guideModal")) closeGuide(); };
+$("adminModal").onclick=e=>{ if(e.target===$("adminModal")) closeAdminReset(); };
 
 /* ===================== PWA (installable + offline) ===================== */
 if("serviceWorker" in navigator && location.protocol.startsWith("http")){
