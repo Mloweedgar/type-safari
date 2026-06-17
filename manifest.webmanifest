@@ -5,8 +5,8 @@
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#bfe9ff",
-  "theme_color": "#1eb53a",
+  "background_color": "#ffffff",
+  "theme_color": "#0a1440",
   "lang": "en",
   "categories": ["education", "kids", "games"],
   "icons": [

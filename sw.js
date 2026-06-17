@@ -1,9 +1,11 @@
 /* Type Safari service worker — offline app shell */
-const CACHE = "type-safari-v1";
+const CACHE = "type-safari-v2";
 const ASSETS = [
   "./",
   "index.html",
   "manifest.webmanifest",
+  "spa-logo.png",
+  "favicon.png",
   "icon-192.png",
   "icon-512.png",
   "icon-512-maskable.png",
