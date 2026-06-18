@@ -1233,10 +1233,10 @@ const GAMES={
   s16:{name:"Graduation Parade",emoji:"🏆",engine:"progress",mode:"race",words:["I can type fast.","I know my keys.","I love Tanzania.","I am a champion!"],avatar:"🎓",opp:"🥁",scene:"crowd",hint:"Type each cheer to lead the parade!"}
 };
 const BONUS_GAMES={
-  b1:{name:"Safari Street Rally",emoji:"🏎️",engine:"progress",mode:"rally",words:["signal check","rapid corner","boost lane","Gear 4 now!","tight drift","Focus, driver!","checkpoint 7","finish strong"],avatar:"🏎️",opp:"🚗",scene:"road",hint:"Cars race when you type. Clean streaks charge turbo and push your rally car ahead."},
-  b2:{name:"Bingwa Bicycle Dash",emoji:"🚴",engine:"progress",mode:"bike",words:["pedal fast","gear 2","hill climb","Brake now!","trail-7","shift up 3","steady balance","sprint to camp"],avatar:"🚴",opp:"🌪️",scene:"trail",hint:"Type to keep the bicycle flying down the trail. Mixed inputs raise the gear and the speed."},
-  b3:{name:"Twiga Block Builder",emoji:"🧱",engine:"progress",mode:"build",words:["corner stone","bridge arch","top beam","lock support","fit the puzzle","align each block","strong finish","tower complete"],avatar:"🏗️",scene:"forge",hint:"Arrange the build by typing each block phrase correctly before the tower stalls."},
-  b4:{name:"Classroom Challenge Arena",emoji:"🏅",engine:"progress",mode:"arena",words:["Ready, challenger?","Accuracy beats speed.","Level 6 typing duel.","Hold Shift for capitals.","One mistake can cost points.","Finish strong, champion!"],avatar:"🧑🏾‍💻",opp:"🥇",scene:"arena2",hint:"A serious typing competition with tougher sentences, punctuation, and pressure."}
+  b1:{name:"Safari Street Rally",emoji:"🏎️",engine:"progress",mode:"rally",words:["start car","boost now","safe turn","gear 3","road sign","finish fast"],avatar:"🏎️",opp:"🚗",scene:"road",hint:"A calmer rally with shorter phrases. Clean typing still charges turbo and moves your car ahead."},
+  b2:{name:"Bingwa Bicycle Dash",emoji:"🚴",engine:"progress",mode:"bike",words:["pedal fast","gear 2","up hill","brake now","trail 7","camp sprint"],avatar:"🚴",opp:"🌪️",scene:"trail",hint:"The bicycle still feels exciting, but the trail is kinder and the typing is shorter."},
+  b3:{name:"Twiga Block Builder",emoji:"🧱",engine:"progress",mode:"build",words:["base block","side wall","top beam","lock piece","stack high","build done"],avatar:"🏗️",scene:"forge",hint:"Build the tower with shorter block phrases and one extra heart for practice."},
+  b4:{name:"Classroom Challenge Arena",emoji:"🏅",engine:"progress",mode:"arena",words:["Ready now.","Type with care.","Use Shift well.","Stay calm.","Win this round.","Champion!"],avatar:"🧑🏾‍💻",opp:"🥇",scene:"arena2",hint:"Still a challenge, but now the arena gives more breathing room between rounds."}
 };
 const GAME_ORDER=STOPS.map(s=>s.id);
 const BONUS_ORDER=Object.keys(BONUS_GAMES);
@@ -1291,14 +1291,14 @@ function openGamesHub(){ closeGame(); const hub=$("gameHub"), bonusHub=$("bonusH
 }
 function openGame(stopId){
   closeGame(); const def=ALL_GAMES[stopId]; if(!def)return;
-  G={gameId:stopId,stopId,def,score:0,lives:3,items:[],running:true,raf:null,last:null,spawnAcc:0,spawnEvery:1.2,speed:70,hits:0,lock:null,combo:0,energy:100,gear:1,oppPct:2};
+  G={gameId:stopId,stopId,def,score:0,lives:3,maxLives:3,items:[],running:true,raf:null,last:null,spawnAcc:0,spawnEvery:1.2,speed:70,hits:0,lock:null,combo:0,energy:100,gear:1,oppPct:2};
   $("arcadeTitle").textContent=def.emoji+" "+def.name; $("gameOver").style.display="none"; $("gameArea").style.display="block"; $("gameArea").innerHTML=""; setScene(def.scene);
   show("arcade");
   if(def.engine==="catch") startCatch(def); else if(def.engine==="pop") startPop(def); else startProgress(def);
 }
 function closeGame(){ if(G){G.running=false; if(G.raf)cancelAnimationFrame(G.raf); if(G.timer)clearInterval(G.timer);} G=null; }
 function updScore(){ $("arcadeScore").textContent="⭐ "+(G?G.score:0); }
-function updLives(){ $("arcadeLives").textContent="❤️".repeat(Math.max(0,G.lives))+"🤍".repeat(Math.max(0,3-G.lives)); }
+function updLives(){ const max=G?(G.maxLives||3):3; $("arcadeLives").textContent="❤️".repeat(Math.max(0,G.lives))+"🤍".repeat(Math.max(0,max-G.lives)); }
 function loseLife(){ G.lives--; updLives(); sBad(); if(G.lives<=0) endGame(false); }
 function startLoop(step){ function frame(ts){ if(!G||!G.running)return; if(G.last==null)G.last=ts; let dt=(ts-G.last)/1000; if(dt>0.1)dt=0.1; G.last=ts; step(dt); G.raf=requestAnimationFrame(frame);} G.raf=requestAnimationFrame(frame); }
 function removeItem(i){ const it=G.items[i]; if(it&&it.el){ it.el.classList.add("pop"); const e=it.el; setTimeout(()=>e.remove(),220);} G.items.splice(i,1); }
@@ -1416,16 +1416,16 @@ function startProgress(def){
   if(def.mode==="race"){
     G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct+=100/(G.steps+1); if(G.oppPct>100)G.oppPct=100; updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },2600);
   } else if(def.mode==="rally"){
-    G.oppPct=4;
-    G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct=Math.min(100,G.oppPct+6+Math.floor(G.idx/2)); updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },1600);
+    G.oppPct=2;
+    G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct=Math.min(100,G.oppPct+4+Math.floor(G.idx/3)); updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },1900);
   } else if(def.mode==="bike"){
     G.oppPct=0; G.energy=100;
-    G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct=Math.min(100,G.oppPct+7+Math.floor(G.idx/3)); updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },1850);
+    G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct=Math.min(100,G.oppPct+4+Math.floor(G.idx/4)); updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },2200);
   } else if(def.mode==="build"){
-    G.lives=3; updLives();
+    G.maxLives=4; G.lives=4; updLives();
   } else if(def.mode==="arena"){
-    G.oppPct=6;
-    G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct=Math.min(100,G.oppPct+8+Math.floor(G.idx/2)); updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },1700);
+    G.oppPct=4;
+    G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct=Math.min(100,G.oppPct+5+Math.floor(G.idx/3)); updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },2000);
   }
   updateProgressModeVisual();
 }
@@ -1468,15 +1468,15 @@ function progKey(key){ if(G.t0==null)G.t0=Date.now(); const item=G.list[G.idx]; 
   if(ok){
     sGood();
     if(G.def.mode==="rally") G.combo=(G.combo||0)+1;
-    if(G.def.mode==="bike") G.energy=Math.min(100,(G.energy||100)+4);
+    if(G.def.mode==="bike") G.energy=Math.min(100,(G.energy||100)+6);
     G.cpos++;
     if(G.cpos>=item.length) itemDone(); else renderProg();
   } else {
     sBad();
-    if(G.def.mode==="rally"){ G.combo=0; G.oppPct=Math.min(100,(G.oppPct||0)+4); }
-    else if(G.def.mode==="bike"){ G.energy=Math.max(0,(G.energy||100)-12); if(G.energy<=0){ endGame(false); return; } }
+    if(G.def.mode==="rally"){ G.combo=0; G.oppPct=Math.min(100,(G.oppPct||0)+2); }
+    else if(G.def.mode==="bike"){ G.energy=Math.max(0,(G.energy||100)-8); if(G.energy<=0){ endGame(false); return; } }
     else if(G.def.mode==="build"){ loseLife(); if(!G||!G.running)return; }
-    else if(G.def.mode==="arena"){ G.oppPct=Math.min(100,(G.oppPct||0)+6); }
+    else if(G.def.mode==="arena"){ G.oppPct=Math.min(100,(G.oppPct||0)+3); }
     updateProgressModeVisual();
   }
 }
