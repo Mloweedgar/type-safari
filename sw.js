@@ -1,5 +1,5 @@
 /* Type Safari service worker — offline app shell */
-const CACHE = "type-safari-v6";
+const CACHE = "type-safari-v7";
 const ASSETS = [
   "./",
   "index.html",
@@ -26,8 +26,24 @@ self.addEventListener("activate", e => {
   );
 });
 
+self.addEventListener("message", e => {
+  if (e.data && e.data.type === "SKIP_WAITING") self.skipWaiting();
+});
+
 self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
+  const url = new URL(e.request.url);
+  const isPage = e.request.mode === "navigate" || url.pathname === "/" || url.pathname.endsWith(".html");
+  if (isPage) {
+    e.respondWith(
+      fetch(e.request).then(resp => {
+        const copy = resp.clone();
+        caches.open(CACHE).then(c => c.put(e.request, copy));
+        return resp;
+      }).catch(() => caches.match(e.request).then(cached => cached || caches.match("index.html")))
+    );
+    return;
+  }
   e.respondWith(
     caches.match(e.request).then(cached =>
       cached || fetch(e.request).then(resp => {
