@@ -206,6 +206,9 @@
   .result-stars .pop{display:inline-block;animation:starpop .5s both;}
   @keyframes starpop{from{transform:scale(0) rotate(-40deg);opacity:0}to{transform:none;opacity:1}}
   .reward-banner{background:linear-gradient(180deg,#fff7d6,#ffe9a8);border-radius:16px;padding:12px;margin:10px 0;font-weight:bold;color:#5a3e00;}
+  .hubpanel{margin-top:14px;}
+  .hubtitle{margin:0 0 4px;color:var(--navy);font-size:20px;}
+  .hubcopy{margin:0 0 12px;color:#6a5b44;font-size:13px;}
 
   /* games */
   #gameArea{position:relative;height:380px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);
@@ -227,7 +230,7 @@
   @keyframes popout{to{transform:translateX(-50%) scale(1.7);opacity:0}}
   .lane{position:relative;height:60px;background:#eef9ff;border-radius:12px;margin:8px 0;overflow:hidden;border:3px dashed #bcd;}
   .finish{position:absolute;right:6px;top:0;bottom:0;width:9px;background:repeating-linear-gradient(45deg,#222 0 6px,#fff 6px 12px);}
-  .runner{position:absolute;bottom:7px;font-size:34px;transition:left .35s ease;transform:translateX(-50%);}
+  .runner{position:absolute;bottom:7px;font-size:34px;transition:left .35s ease;transform:translateX(-50%) scaleX(-1);}
   .runnerlbl{position:absolute;top:3px;left:8px;font-size:11px;font-weight:bold;color:#5a4a32;}
   /* themed game items */
   .gitem.item{display:flex;flex-direction:column;align-items:center;transform:translateX(-50%);}
@@ -247,7 +250,44 @@
   .flagbox .stripe{flex:1;background:#dfe3e8;transition:background .4s;}
   .meterwrap{position:relative;height:48px;margin:20px 14px;background:#eef9ff;border-radius:24px;border:3px solid #bcd;overflow:hidden;}
   .meterfill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#69db7c,#1eb53a);transition:width .4s;}
-  .meterav{position:absolute;bottom:5px;font-size:30px;transition:left .4s;transform:translateX(-50%);}
+  .meterav{position:absolute;bottom:5px;font-size:30px;transition:left .4s;transform:translateX(-50%) scaleX(-1);}
+  .rallywrap,.bikecourse,.buildsite,.arenafloor{padding:12px;height:100%;position:relative;}
+  .roadlane{position:relative;height:72px;border-radius:18px;margin:10px 0;background:
+    repeating-linear-gradient(90deg,transparent 0 38px,rgba(255,255,255,.72) 38px 58px,transparent 58px 96px),
+    linear-gradient(180deg,#484b58,#2f313d);border:3px solid rgba(255,255,255,.18);overflow:hidden;}
+  .rallycar{position:absolute;bottom:10px;font-size:38px;transform:translateX(-50%) scaleX(-1);transition:left .18s ease;}
+  .dashrow{display:flex;gap:10px;align-items:center;margin:12px 6px 6px;}
+  .dashmeter{flex:1;height:18px;border-radius:999px;background:rgba(255,255,255,.75);overflow:hidden;box-shadow:inset 0 2px 5px rgba(0,0,0,.14);}
+  .dashfill{height:100%;width:0;background:linear-gradient(90deg,#ffd84d,#ff7a00);transition:width .18s ease;}
+  .gearbadge{background:#0a1440;color:#fff;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:900;letter-spacing:.4px;}
+  .bikecourse{background:linear-gradient(180deg,#cdeeff,#e9f7ff 52%,#94c973 52%,#5c9f47 100%);}
+  .bikehill{position:absolute;bottom:38px;border-radius:50% 50% 0 0/100% 100% 0 0;background:rgba(72,126,52,.45);}
+  .bikehill.h1{left:-4%;width:30%;height:88px;}
+  .bikehill.h2{left:22%;width:34%;height:118px;}
+  .bikehill.h3{left:54%;width:30%;height:78px;}
+  .bikehill.h4{right:-4%;width:28%;height:108px;}
+  .trailline{position:absolute;left:5%;right:5%;bottom:30px;height:18px;border-radius:999px;background:#9b6a3b;box-shadow:inset 0 2px 4px rgba(0,0,0,.2);}
+  .biker{position:absolute;bottom:22px;font-size:36px;transform:translateX(-50%) scaleX(-1);transition:left .18s ease;}
+  .trailchaser{position:absolute;bottom:24px;font-size:34px;transform:translateX(-50%) scaleX(-1);transition:left .24s ease;filter:drop-shadow(0 2px 4px rgba(0,0,0,.25));}
+  .bikehud{display:flex;gap:10px;align-items:center;margin:0 6px 10px;}
+  .buildsite{background:linear-gradient(180deg,#d5eeff 0 48%,#d0b183 48% 100%);}
+  .buildyard{position:absolute;left:8%;right:8%;bottom:20px;height:174px;display:flex;align-items:flex-end;justify-content:center;}
+  .buildtower{width:min(360px,84%);display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+  .buildslot{height:46px;border-radius:12px;background:rgba(255,255,255,.58);border:3px dashed rgba(90,62,0,.3);display:flex;align-items:center;justify-content:center;
+    color:#7a6a52;font-size:12px;font-weight:900;transition:transform .18s ease,background .18s ease,border-color .18s ease;}
+  .buildslot.live{background:#fff6bf;border-color:#f4b400;transform:translateY(-4px);}
+  .buildslot.done{background:linear-gradient(180deg,#ffcf66,#d98b1f);border-style:solid;border-color:#fff;color:#3b2505;}
+  .sitebadge{position:absolute;top:12px;right:12px;background:#fff;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:900;color:#5a3e00;}
+  .arenafloor{background:radial-gradient(circle at 50% 10%,rgba(255,255,255,.18),transparent 40%),linear-gradient(180deg,#1b2f5d,#283d74 64%,#dca63c 64%,#b97818 100%);}
+  .arenalights{position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(180deg,rgba(255,255,255,.16),transparent);}
+  .arenahud{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 6px 12px;}
+  .arenaCard{background:rgba(255,255,255,.9);border-radius:16px;padding:10px 12px;box-shadow:0 6px 14px rgba(0,0,0,.18);}
+  .arenaCard .label{font-size:11px;font-weight:900;color:#6a5b44;letter-spacing:.4px;}
+  .arenaBar{height:14px;border-radius:999px;background:#d9dfe9;overflow:hidden;margin-top:8px;}
+  .arenaBar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#00a3dd,#1eb53a);transition:width .18s ease;}
+  .arenaBar.rival span{background:linear-gradient(90deg,#ff9d00,#ff4f6d);}
+  .roundbadge{position:absolute;top:18px;right:18px;background:#fff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:900;color:#0a1440;}
+  .advancedTag{position:absolute;top:8px;right:8px;background:#0a1440;color:#fff;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:900;letter-spacing:.4px;}
 
   #confetti{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden;}
   .conf{position:absolute;font-size:24px;animation:fall linear forwards;}
@@ -386,7 +426,16 @@
       <div id="gamesMascot" class="mascot"></div>
       <div class="bubble" id="gamesBubble"><span class="who">Twiga:</span> Great work! Chagua mchezo.</div>
     </div>
-    <div class="panel"><div class="levels" id="gameHub"></div></div>
+    <div class="panel hubpanel">
+      <h2 class="hubtitle">Journey Games</h2>
+      <p class="hubcopy">Your 16 safari games, unlocked by finishing each stop.</p>
+      <div class="levels" id="gameHub"></div>
+    </div>
+    <div class="panel hubpanel">
+      <h2 class="hubtitle">Advanced Arcade</h2>
+      <p class="hubcopy" id="bonusCopy">Finish all 16 stops to unlock harder games for older, faster typists.</p>
+      <div class="levels" id="bonusHub"></div>
+    </div>
     <div class="center" style="margin-top:14px;"><button class="btn" id="gamesBack">⬅ Back to map / Ramani</button></div>
   </section>
 
@@ -651,6 +700,7 @@ function normalizeProfile(p){
   if(!p)return p;
   if(!p.stars)p.stars={};
   if(!p.best)p.best={};
+  if(!p.bonusBest)p.bonusBest={};
   if(typeof p.bestWpm!=="number")p.bestWpm=0;
   if(!p.stickers)p.stickers={};
   if(!p.weakKeys)p.weakKeys={};
@@ -664,7 +714,7 @@ let snd = DB.sound!==false;
 function prof(){ const p=DB.users[DB.current]; return p?normalizeProfile(p):null; }
 function ensureProfile(name){
   name=name.trim().slice(0,16); if(!name) return false;
-  if(!DB.users[name]) DB.users[name]={name,stars:{},best:{},bestWpm:0,stickers:{},weakKeys:{},guideSeen:false,mission:null};
+  if(!DB.users[name]) DB.users[name]={name,stars:{},best:{},bonusBest:{},bestWpm:0,stickers:{},weakKeys:{},guideSeen:false,mission:null};
   normalizeProfile(DB.users[name]);
   DB.current=name; saveDB(); return true;
 }
@@ -829,7 +879,7 @@ function rescueLines(keys){
   return [`${a}${b} ${a}${b} ${a}${b}`,`${b}${a} ${b}${a} ${b}${a}`,`${a}${a}${b}${b}`,`${a} ${b} ${a} ${b}`];
 }
 function freshProfile(name){
-  return {name,stars:{},best:{},bestWpm:0,stickers:{},weakKeys:{},guideSeen:false,mission:null};
+  return {name,stars:{},best:{},bonusBest:{},bestWpm:0,stickers:{},weakKeys:{},guideSeen:false,mission:null};
 }
 function resetProfileData(name){
   DB.users[name]=freshProfile(name);
@@ -1051,6 +1101,7 @@ function showStopResults(result,rescueNote=""){
   if(g) lines.push(`🎮 Game ready: <b>${g.emoji} ${g.name}</b>`);
   if(result.missionMsg) lines.push(`<b>${result.missionMsg}</b>`);
   if(result.rescueKeys && result.rescueKeys.length && !rescueNote) lines.push(`🐾 Need help with <b>${rescueKeyLabel(result.rescueKeys)}</b>? Tap Quick practice.`);
+  if(result.stopId==="s16" && advancedUnlocked()) lines.push(`🏎️ <b>Advanced Arcade unlocked!</b> Four harder bonus games are ready in the games hub.`);
   $("rewardBanner").style.display=lines.length?"block":"none";
   $("rewardBanner").innerHTML=lines.join("<br>");
   $("rescueBtn").style.display=result.rescueKeys && result.rescueKeys.length && !rescueNote ? "inline-block" : "none";
@@ -1090,7 +1141,11 @@ const SCENES={
   dig:"linear-gradient(180deg,#e9d6a8,#d8b877 40%,#a9824a)",
   night:"linear-gradient(180deg,#13284a,#1f3a66 60%,#2a4a7a)",
   flag:"linear-gradient(180deg,#bfe9ff,#eef7ff)",
-  crowd:"linear-gradient(180deg,#bfe9ff,#e9f7ff 55%,#c7e89a)"
+  crowd:"linear-gradient(180deg,#bfe9ff,#e9f7ff 55%,#c7e89a)",
+  road:"linear-gradient(180deg,#8ed2ff,#dff2ff 34%,#51525f 34%,#2f313d 100%)",
+  trail:"linear-gradient(180deg,#cdeeff,#eaf8ff 50%,#96cb79 50%,#5b9e46 100%)",
+  forge:"linear-gradient(180deg,#d6efff,#edf7ff 45%,#d6b98a 45%,#9b6a3b 100%)",
+  arena2:"linear-gradient(180deg,#18284f,#2a4382 58%,#f3c96d 58%,#b97818 100%)"
 };
 const GAMES={
   s1:{name:"Cargo Catch",emoji:"📦",engine:"catch",motion:"fall",pool:"fj",item:"📦",catcher:"🦒",scene:"port",hint:"Type the letter on each falling crate to catch it!"},
@@ -1110,28 +1165,66 @@ const GAMES={
   s15:{name:"Safari Photo",emoji:"📷",engine:"pop",motion:"rise",words:["simba","tembo","kifaru","nyumbu","twiga","fisi","chui","pofu"],item:"📷",scene:"savanna",hint:"An animal appears — type its name to snap a photo!"},
   s16:{name:"Graduation Parade",emoji:"🏆",engine:"progress",mode:"race",words:["I can type fast.","I know my keys.","I love Tanzania.","I am a champion!"],avatar:"🎓",opp:"🥁",scene:"crowd",hint:"Type each cheer to lead the parade!"}
 };
+const BONUS_GAMES={
+  b1:{name:"Safari Street Rally",emoji:"🏎️",engine:"progress",mode:"rally",words:["signal check","rapid corner","boost lane","Gear 4 now!","tight drift","Focus, driver!","checkpoint 7","finish strong"],avatar:"🏎️",opp:"🚗",scene:"road",hint:"Cars race when you type. Clean streaks charge turbo and push your rally car ahead."},
+  b2:{name:"Bingwa Bicycle Dash",emoji:"🚴",engine:"progress",mode:"bike",words:["pedal fast","gear 2","hill climb","Brake now!","trail-7","shift up 3","steady balance","sprint to camp"],avatar:"🚴",opp:"🌪️",scene:"trail",hint:"Type to keep the bicycle flying down the trail. Mixed inputs raise the gear and the speed."},
+  b3:{name:"Twiga Block Builder",emoji:"🧱",engine:"progress",mode:"build",words:["corner stone","bridge arch","top beam","lock support","fit the puzzle","align each block","strong finish","tower complete"],avatar:"🏗️",scene:"forge",hint:"Arrange the build by typing each block phrase correctly before the tower stalls."},
+  b4:{name:"Classroom Challenge Arena",emoji:"🏅",engine:"progress",mode:"arena",words:["Ready, challenger?","Accuracy beats speed.","Level 6 typing duel.","Hold Shift for capitals.","One mistake can cost points.","Finish strong, champion!"],avatar:"🧑🏾‍💻",opp:"🥇",scene:"arena2",hint:"A serious typing competition with tougher sentences, punctuation, and pressure."}
+};
 const GAME_ORDER=STOPS.map(s=>s.id);
+const BONUS_ORDER=Object.keys(BONUS_GAMES);
+const ALL_GAMES={...GAMES,...BONUS_GAMES};
 function gameUnlocked(stopId){ return starsFor(stopId)>=1; }
+function advancedUnlocked(){ return doneCount()===STOPS.length; }
+function bonusUnlocked(){ return advancedUnlocked(); }
+function bestScoreForGame(gameId){
+  const p=prof(); if(!p)return 0;
+  return BONUS_GAMES[gameId] ? ((p.bonusBest&&p.bonusBest[gameId])||0) : ((p.best&&p.best[gameId])||0);
+}
+function storeBestForGame(gameId,score){
+  const p=prof(); if(!p)return;
+  if(BONUS_GAMES[gameId]){
+    p.bonusBest=p.bonusBest||{};
+    if(score>(p.bonusBest[gameId]||0)) p.bonusBest[gameId]=score;
+  } else {
+    p.best=p.best||{};
+    if(score>(p.best[gameId]||0)) p.best[gameId]=score;
+  }
+}
 
 let G=null;
 function areaSize(){ const a=$("gameArea"); return {w:a.clientWidth||700,h:a.clientHeight||380}; }
 function setScene(name){ $("gameArea").style.background=SCENES[name]||SCENES.savanna; }
 
-function openGamesHub(){ closeGame(); const hub=$("gameHub"); hub.innerHTML="";
+function openGamesHub(){ closeGame(); const hub=$("gameHub"), bonusHub=$("bonusHub"); hub.innerHTML=""; bonusHub.innerHTML="";
   GAME_ORDER.forEach((sid,i)=>{ const g=GAMES[sid]; const unlocked=gameUnlocked(sid); const d=document.createElement("div"); d.className="lvl"+(unlocked?"":" locked");
-    const best=(prof()&&prof().best&&prof().best[sid])||0;
+    const best=bestScoreForGame(sid);
     d.innerHTML=`<span class="num">${i+1}</span><span class="emoji">${g.emoji}</span><div class="nm">${g.name}</div>
-      <div class="sub">${unlocked?g.hint.slice(0,40):('Finish Stop '+(i+1)+' to unlock')}</div>
+      <div class="sub">${unlocked?g.hint.slice(0,44):('Finish Stop '+(i+1)+' to unlock')}</div>
       <div class="sub" style="color:#a08a66">${unlocked?('Best: ⭐ '+best):'🔒'}</div>`;
     if(unlocked) d.onclick=()=>openGame(sid);
     else d.onclick=()=>{ sayTwiga("gamesBubble","gamesMascot",`Finish Stop ${i+1} first to open this game!`,"sad","shake"); sBad(); };
     hub.appendChild(d);
   });
-  sayTwiga("gamesBubble","gamesMascot",`${doneCount()} of ${STOPS.length} games unlocked. Chagua moja!`,"happy"); show("games");
+  $("bonusCopy").textContent=bonusUnlocked() ? "Harder bonus games for older, faster typists. New visuals, longer prompts, more pressure." : "Finish all 16 stops to unlock these harder bonus games.";
+  BONUS_ORDER.forEach((gid,i)=>{ const g=BONUS_GAMES[gid]; const unlocked=bonusUnlocked(); const d=document.createElement("div"); d.className="lvl"+(unlocked?"":" locked");
+    const best=bestScoreForGame(gid);
+    d.innerHTML=`<span class="num">A${i+1}</span><span class="advancedTag">ADV</span><span class="emoji">${g.emoji}</span><div class="nm">${g.name}</div>
+      <div class="sub">${unlocked?g.hint.slice(0,46):"Finish all 16 stops to unlock"}</div>
+      <div class="sub" style="color:#a08a66">${unlocked?('Best: ⭐ '+best):'🔒 Locked'}</div>`;
+    if(unlocked) d.onclick=()=>openGame(gid);
+    else d.onclick=()=>{ sayTwiga("gamesBubble","gamesMascot","Finish every stop on the map, then the Advanced Arcade opens.","sad","shake"); sBad(); };
+    bonusHub.appendChild(d);
+  });
+  const bubbleText=bonusUnlocked()
+    ? `All 16 safari games cleared. Advanced Arcade is open! Chagua challenge kubwa.`
+    : `${doneCount()} of ${STOPS.length} journey games unlocked. Finish the map to open the Advanced Arcade.`;
+  sayTwiga("gamesBubble","gamesMascot",bubbleText,"happy");
+  show("games");
 }
 function openGame(stopId){
-  closeGame(); const def=GAMES[stopId]; if(!def)return;
-  G={stopId,def,score:0,lives:3,items:[],running:true,raf:null,last:null,spawnAcc:0,spawnEvery:1.2,speed:70,hits:0,lock:null};
+  closeGame(); const def=ALL_GAMES[stopId]; if(!def)return;
+  G={gameId:stopId,stopId,def,score:0,lives:3,items:[],running:true,raf:null,last:null,spawnAcc:0,spawnEvery:1.2,speed:70,hits:0,lock:null,combo:0,energy:100,gear:1,oppPct:2};
   $("arcadeTitle").textContent=def.emoji+" "+def.name; $("gameOver").style.display="none"; $("gameArea").style.display="block"; $("gameArea").innerHTML=""; setScene(def.scene);
   show("arcade");
   if(def.engine==="catch") startCatch(def); else if(def.engine==="pop") startPop(def); else startProgress(def);
@@ -1204,12 +1297,70 @@ function popPop(it){ const idx=G.items.indexOf(it); if(G.lock===it)G.lock=null; 
   G.score+=it.word.length*5; G.hits++; updScore(); sWord(); miniConfetti(6); if(G.hits%5===0){G.speed+=5;G.spawnEvery=Math.max(1.2,G.spawnEvery-0.1);} }
 
 /* ----- PROGRESS engine (type prompts): race / climb / paint / meter ----- */
+function progressRatio(){
+  if(!G || !G.steps)return 0;
+  if(G.idx>=G.steps)return 1;
+  const item=G.list[G.idx]||"";
+  const within=item.length ? (G.cpos/item.length) : 0;
+  return Math.max(0,Math.min(1,(G.idx+within)/G.steps));
+}
+function updateProgressModeVisual(){
+  if(!G)return;
+  const def=G.def, ratio=progressRatio(), pct=4+(ratio*92);
+  if(def.mode==="rally"){
+    const av=$("avR"), opp=$("oppR"), fill=$("dashFill"), badge=$("gearBadge");
+    if(av)av.style.left=pct+"%";
+    if(opp)opp.style.left=(G.oppPct||4)+"%";
+    if(fill)fill.style.width=pct+"%";
+    const turbo=`TURBO x${Math.max(1,Math.floor((G.combo||0)/3)+1)}`;
+    if(badge)badge.textContent=turbo;
+    $("arcadeLives").textContent=turbo;
+  } else if(def.mode==="bike"){
+    G.gear=Math.min(5,1+Math.floor(ratio*4));
+    const av=$("avR"), opp=$("oppR"), fill=$("bikeFill"), badge=$("bikeGear");
+    if(av)av.style.left=pct+"%";
+    if(opp)opp.style.left=(G.oppPct||2)+"%";
+    if(fill)fill.style.width=pct+"%";
+    if(badge)badge.textContent=`GEAR ${G.gear}`;
+    $("arcadeLives").textContent=`GEAR ${G.gear} · ⚡ ${Math.max(0,Math.round(G.energy||0))}`;
+  } else if(def.mode==="build"){
+    const slots=[...document.querySelectorAll(".buildslot")];
+    slots.forEach((slot,i)=>{
+      slot.className="buildslot"+(i<G.idx?" done":i===G.idx?" live":"");
+      slot.textContent=i<G.idx?"LOCK":i===G.idx?"TYPE":"WAIT";
+    });
+    const count=$("buildCount"); if(count)count.textContent=`${G.idx}/${G.steps}`;
+    updLives();
+  } else if(def.mode==="arena"){
+    const pf=$("playerFill"), of=$("oppFill"), round=$("roundBadge");
+    if(pf)pf.style.width=pct+"%";
+    if(of)of.style.width=(G.oppPct||2)+"%";
+    if(round)round.textContent=`ROUND ${Math.min(G.steps,G.idx+1)}/${G.steps}`;
+    $("arcadeLives").textContent=`RIVAL ${Math.round(G.oppPct||0)}%`;
+  } else if(def.mode==="race"){
+    const opp=$("oppR"); if(opp)opp.style.left=(G.oppPct||2)+"%";
+  }
+}
 function startProgress(def){
   $("kbGame").style.display="none";
   $("arcadeLives").textContent = def.mode==="race"?"🏁":def.mode==="climb"?"⛰️":def.mode==="paint"?"🎨":"⭐";
-  G.list=def.words.slice(); G.idx=0; G.cpos=0; G.typed=0; G.t0=null; G.steps=G.list.length; G.oppPct=2;
+  G.list=def.words.slice(); G.idx=0; G.cpos=0; G.typed=0; G.t0=null; G.steps=G.list.length; G.combo=0; G.energy=100; G.gear=1; G.oppPct=2;
   $("arcadeHint").innerHTML=def.hint; buildProgressScene(def); renderProg(); updScore();
-  if(def.mode==="race"){ G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct+=100/(G.steps+1); if(G.oppPct>100)G.oppPct=100; const o=$("oppR"); if(o)o.style.left=G.oppPct+"%"; if(G.oppPct>=100)endGame(false); },2600); }
+  if(def.mode==="race"){
+    G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct+=100/(G.steps+1); if(G.oppPct>100)G.oppPct=100; updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },2600);
+  } else if(def.mode==="rally"){
+    G.oppPct=4;
+    G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct=Math.min(100,G.oppPct+6+Math.floor(G.idx/2)); updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },1600);
+  } else if(def.mode==="bike"){
+    G.oppPct=0; G.energy=100;
+    G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct=Math.min(100,G.oppPct+7+Math.floor(G.idx/3)); updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },1850);
+  } else if(def.mode==="build"){
+    G.lives=3; updLives();
+  } else if(def.mode==="arena"){
+    G.oppPct=6;
+    G.timer=setInterval(()=>{ if(!G||!G.running)return; G.oppPct=Math.min(100,G.oppPct+8+Math.floor(G.idx/2)); updateProgressModeVisual(); if(G.oppPct>=100)endGame(false); },1700);
+  }
+  updateProgressModeVisual();
 }
 function buildProgressScene(def){ const a=$("gameArea");
   if(def.mode==="race"){ a.innerHTML=`<div style="padding:12px;">
@@ -1218,18 +1369,63 @@ function buildProgressScene(def){ const a=$("gameArea");
     <div class="prompt" id="progPrompt"></div></div>`; }
   else if(def.mode==="climb"){ a.innerHTML=`<div class="mtn"><div class="peak">⛳ Uhuru Peak</div><div class="climber" id="avR" style="bottom:6%">${def.avatar}</div></div><div class="prompt" id="progPrompt"></div>`; }
   else if(def.mode==="paint"){ a.innerHTML=`<div class="flagbox"><div class="stripe" id="st0"></div><div class="stripe" id="st1"></div><div class="stripe" id="st2"></div><div class="stripe" id="st3"></div></div><div class="prompt" id="progPrompt"></div>`; }
+  else if(def.mode==="rally"){ a.innerHTML=`<div class="rallywrap">
+    <div class="roadlane"><span class="runnerlbl">You</span><div class="finish"></div><div class="rallycar" id="avR" style="left:4%">${def.avatar}</div></div>
+    <div class="roadlane"><span class="runnerlbl">Rival</span><div class="finish"></div><div class="rallycar" id="oppR" style="left:4%">${def.opp||"🚗"}</div></div>
+    <div class="dashrow"><div class="dashmeter"><div class="dashfill" id="dashFill" style="width:4%"></div></div><div class="gearbadge" id="gearBadge">TURBO x1</div></div>
+    <div class="prompt" id="progPrompt"></div></div>`; }
+  else if(def.mode==="bike"){ a.innerHTML=`<div class="bikecourse">
+    <div class="bikehud"><div class="gearbadge" id="bikeGear">GEAR 1</div><div class="dashmeter"><div class="dashfill" id="bikeFill" style="width:4%"></div></div></div>
+    <div class="bikehill h1"></div><div class="bikehill h2"></div><div class="bikehill h3"></div><div class="bikehill h4"></div>
+    <div class="trailline"></div><div class="biker" id="avR" style="left:4%">${def.avatar}</div><div class="trailchaser" id="oppR" style="left:2%">${def.opp||"🌪️"}</div>
+    <div class="prompt" id="progPrompt"></div></div>`; }
+  else if(def.mode==="build"){ a.innerHTML=`<div class="buildsite">
+    <div class="sitebadge">LOCK ${def.words.length} BLOCKS</div>
+    <div class="buildyard"><div class="buildtower" id="buildTower">${def.words.map(()=>'<div class="buildslot">WAIT</div>').join("")}</div></div>
+    <div class="prompt" id="progPrompt"></div><div class="hint" id="buildCount">0/${def.words.length}</div></div>`; }
+  else if(def.mode==="arena"){ a.innerHTML=`<div class="arenafloor">
+    <div class="arenalights"></div><div class="roundbadge" id="roundBadge">ROUND 1/${def.words.length}</div>
+    <div class="arenahud">
+      <div class="arenaCard"><div class="label">YOU</div><div class="arenaBar"><span id="playerFill" style="width:4%"></span></div></div>
+      <div class="arenaCard"><div class="label">RIVAL</div><div class="arenaBar rival"><span id="oppFill" style="width:6%"></span></div></div>
+    </div>
+    <div class="prompt" id="progPrompt"></div></div>`; }
   else { a.innerHTML=`<div class="meterwrap"><div class="meterfill" id="meterFill" style="width:2%"></div><div class="meterav" id="avR" style="left:2%">${def.avatar||"⛵"}</div></div><div class="prompt" id="progPrompt"></div>`; }
 }
 function renderProg(){ const item=G.list[G.idx]; const box=$("progPrompt"); if(!box)return; box.innerHTML="";
-  for(let i=0;i<item.length;i++){ const s=document.createElement("span"); s.className="pch"; s.textContent=item[i]; if(i<G.cpos)s.classList.add("done"); if(i===G.cpos)s.classList.add("cur"); box.appendChild(s); } }
+  for(let i=0;i<item.length;i++){ const s=document.createElement("span"); s.className="pch"; s.textContent=item[i]; if(i<G.cpos)s.classList.add("done"); if(i===G.cpos)s.classList.add("cur"); box.appendChild(s); }
+  updateProgressModeVisual();
+}
 function progKey(key){ if(G.t0==null)G.t0=Date.now(); const item=G.list[G.idx]; const target=item[G.cpos]; if(target===undefined)return; G.typed++;
   const ok = /[a-z]/i.test(target) ? key.toLowerCase()===target.toLowerCase() : key===target;
-  if(ok){ sGood(); G.cpos++; if(G.cpos>=item.length) itemDone(); else renderProg(); } else sBad(); }
-function itemDone(){ sWord(); G.score+=10; updScore(); miniConfetti(5); G.idx++; G.cpos=0; const def=G.def; const pct=2+(G.idx/G.steps)*96;
+  if(ok){
+    sGood();
+    if(G.def.mode==="rally") G.combo=(G.combo||0)+1;
+    if(G.def.mode==="bike") G.energy=Math.min(100,(G.energy||100)+4);
+    G.cpos++;
+    if(G.cpos>=item.length) itemDone(); else renderProg();
+  } else {
+    sBad();
+    if(G.def.mode==="rally"){ G.combo=0; G.oppPct=Math.min(100,(G.oppPct||0)+4); }
+    else if(G.def.mode==="bike"){ G.energy=Math.max(0,(G.energy||100)-12); if(G.energy<=0){ endGame(false); return; } }
+    else if(G.def.mode==="build"){ loseLife(); if(!G||!G.running)return; }
+    else if(G.def.mode==="arena"){ G.oppPct=Math.min(100,(G.oppPct||0)+6); }
+    updateProgressModeVisual();
+  }
+}
+function itemDone(){ const def=G.def;
+  const bonus = def.mode==="rally" ? Math.min(18,(G.combo||0)*2)
+    : def.mode==="bike" ? ((G.gear||1)*3)
+    : def.mode==="build" ? (G.lives*2)
+    : def.mode==="arena" ? Math.max(2,12-Math.round((G.oppPct||0)/15))
+    : 0;
+  sWord(); G.score+=10+bonus; updScore(); miniConfetti(def.mode==="build"?4:5); G.idx++; G.cpos=0;
+  const pct=2+(G.idx/G.steps)*96;
   if(def.mode==="race"){ const av=$("avR"); if(av)av.style.left=pct+"%"; }
   else if(def.mode==="climb"){ const av=$("avR"); if(av)av.style.bottom=(6+(G.idx/G.steps)*82)+"%"; }
   else if(def.mode==="paint"){ const colors=["#1eb53a","#fcd116","#111111","#00a3dd"]; const st=$("st"+(G.idx-1)); if(st)st.style.background=colors[(G.idx-1)%4]; }
-  else { const mf=$("meterFill"); if(mf)mf.style.width=pct+"%"; const av=$("avR"); if(av)av.style.left=pct+"%"; }
+  else if(def.mode==="meter"){ const mf=$("meterFill"); if(mf)mf.style.width=pct+"%"; const av=$("avR"); if(av)av.style.left=pct+"%"; }
+  updateProgressModeVisual();
   if(G.idx>=G.steps){ endGame(true); return; }
   renderProg();
 }
@@ -1237,7 +1433,7 @@ function itemDone(){ sWord(); G.score+=10; updScore(); miniConfetti(5); G.idx++;
 function gameKey(k){ if(!G||!G.running)return; const e=G.def.engine; if(e==="catch")catchKey(k.toLowerCase()); else if(e==="pop")popKey(k.toLowerCase()); else progKey(k); }
 function endGame(win){
   if(!G)return; G.running=false; if(G.raf)cancelAnimationFrame(G.raf); if(G.timer)clearInterval(G.timer);
-  if(prof()){ prof().best=prof().best||{}; if(G.score>(prof().best[G.stopId]||0)){ prof().best[G.stopId]=G.score; saveDB(); } }
+  if(prof()){ storeBestForGame(G.gameId,G.score); saveDB(); }
   $("gameArea").style.display="none"; $("kbGame").style.display="none"; $("arcadeHint").textContent="";
   const go=$("gameOver"); go.style.display="block"; const eng=G.def.engine; let title,bub,line;
   if(eng==="progress"){ const secs=G.t0?Math.max(1,Math.round((Date.now()-G.t0)/1000)):1; const wpm=Math.round((G.typed/5)/(secs/60));
