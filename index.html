@@ -47,12 +47,22 @@
   .updatemeta{font-size:13px;color:#6a5b44;margin-top:4px;}
   .updateactions{margin-top:0;}
   .secretbtn{border:none;background:transparent;padding:0;margin:0;color:inherit;font:inherit;text-align:left;cursor:default;}
-  .logo{display:flex;align-items:center;gap:11px;font-weight:bold;font-size:23px;color:#fff;}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:bold;color:#fff;}
   .logo .badge{background:var(--card);border-radius:13px;padding:5px 11px;box-shadow:0 2px 7px rgba(0,0,0,.28);display:flex;align-items:center;}
   .logo .badge img{height:30px;display:block;}
-  .logo .word b{color:var(--gold);}
+  .logo .word{display:flex;flex-direction:column;align-items:flex-start;line-height:1.02;text-align:left;}
+  .logo .academy{font-size:18px;font-weight:900;letter-spacing:.2px;color:#fff;}
+  .logo .subbrand{font-size:22px;font-weight:900;color:#ffe8a3;}
+  .logo .subbrand b{color:var(--gold);}
   .brandmark{display:flex;justify-content:center;margin:2px auto 10px;}
   .brandmark img{height:58px;background:#fff;border-radius:18px;padding:11px 20px;box-shadow:var(--shadow);}
+  .heroBrand{display:flex;flex-direction:column;align-items:center;gap:8px;margin:4px auto 10px;}
+  .heroAcademy{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#fff,#fff2cc);border-radius:999px;padding:8px 16px;
+    box-shadow:var(--shadow);font-size:15px;font-weight:900;color:var(--navy);}
+  .heroAcademy .dot{width:10px;height:10px;border-radius:50%;background:var(--spa-orange);box-shadow:0 0 0 3px rgba(249,115,22,.18);}
+  .heroTitle{margin:0;font-size:38px;color:#fff;text-align:center;text-shadow:2px 2px 0 var(--navy),3px 3px 0 rgba(0,0,0,.22);}
+  .heroTitle .academyWord{display:block;font-size:34px;color:#fff7cf;letter-spacing:.2px;}
+  .heroTitle .appWord{display:block;font-size:42px;color:#fff;}
   .adminbtn{opacity:.14;padding:7px 10px;font-size:18px;line-height:1;box-shadow:none;background:rgba(255,255,255,.72);color:#7a6a52;min-width:36px;}
   .adminbtn:hover,.adminbtn:focus{opacity:.45;}
   .toprt{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
@@ -302,6 +312,11 @@
   @media(max-width:560px){
     .passage{font-size:23px;} .passage.long{font-size:19px;} .key{height:42px;font-size:15px;}
     h1.title{font-size:24px;} #gameArea{height:320px;} .mascot{width:74px;flex-basis:74px;}
+    .heroTitle{font-size:30px;}
+    .heroTitle .academyWord{font-size:27px;}
+    .heroTitle .appWord{font-size:34px;}
+    .logo .academy{font-size:15px;}
+    .logo .subbrand{font-size:18px;}
     .key.spec{font-size:8px;} .kb{padding:6px;} .kbrow{gap:3px;}
     .missiontitle{font-size:17px;}
     .stickershelf{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -315,7 +330,7 @@
 
 <div class="wrap">
   <div class="topbar" id="topbar" style="display:none;">
-    <button type="button" class="secretbtn logo" id="adminTopTap"><span class="badge"><img src="spa-logo.png" alt="Start Point Academy"></span><span class="word">Type <b>Safari</b></span></button>
+    <button type="button" class="secretbtn logo" id="adminTopTap"><span class="badge"><img src="spa-logo.png" alt="Start Point Academy"></span><span class="word"><span class="academy">Start Point Academy</span><span class="subbrand">Type <b>Safari</b></span></span></button>
     <div class="toprt">
       <div class="chip" id="userChip">🧒🏾 <span id="userName"></span></div>
       <div class="chip">⭐ <span id="starCount">0</span></div>
@@ -343,9 +358,12 @@
 
   <!-- ===== WELCOME / REGISTER ===== -->
   <section id="welcome" class="screen active">
-    <button type="button" class="secretbtn brandmark" id="adminWelcomeTap"><img src="spa-logo.png" alt="Start Point Academy"></button>
-    <h1 class="title" style="font-size:36px;">🦒 Type Safari</h1>
-    <p class="subtitle">Twiga's journey across Tanzania — jifunze kuandika kama bingwa!</p>
+    <div class="heroBrand">
+      <button type="button" class="secretbtn brandmark" id="adminWelcomeTap"><img src="spa-logo.png" alt="Start Point Academy"></button>
+      <div class="heroAcademy"><span class="dot"></span><span>Start Point Academy</span></div>
+    </div>
+    <h1 class="heroTitle"><span class="academyWord">Start Point Academy</span><span class="appWord">🦒 Type Safari</span></h1>
+    <p class="subtitle">Typing adventure by Start Point Academy — jifunze kuandika kama bingwa!</p>
     <div class="center" style="margin-bottom:14px;">
       <button class="iconbtn helpbtn" id="helpWelcomeBtn">❓ How to play · Jinsi ya kucheza</button>
       <button class="iconbtn adminbtn" id="adminWelcomeBtn" aria-label="Teacher reset" title="Teacher reset" style="margin-left:6px;">…</button>
