@@ -1,5 +1,5 @@
 /* Type Safari service worker — offline app shell */
-const CACHE = "type-safari-v7";
+const CACHE = "type-safari-v8";
 const ASSETS = [
   "./",
   "index.html",

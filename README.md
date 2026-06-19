@@ -1,4 +1,4 @@
-# 🦒 Type Safari
+# 🦒 Typing Safari
 
 A fun, offline typing tutor for kids, built for **Start Point Academy** (Tanzania).
 

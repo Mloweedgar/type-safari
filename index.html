@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Type Safari — Twiga's Tanzania Journey · Start Point Academy</title>
+<title>Typing Safari — Twiga's Tanzania Journey · Start Point Academy</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0a1440">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Type Safari">
+<meta name="apple-mobile-web-app-title" content="Typing Safari">
 <style>
   :root{
     --savanna1:#fff7e6; --savanna2:#ffe8b3;
@@ -29,7 +29,7 @@
   body{font-family:"Comic Sans MS","Trebuchet MS",Verdana,sans-serif;color:var(--ink);
     background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 34%,var(--savanna2) 35%,var(--savanna1) 100%);
     overflow-x:hidden;user-select:none;}
-  .sun{position:fixed;top:16px;right:6%;width:84px;height:84px;border-radius:50%;
+  .sky-sun{position:fixed;top:16px;right:6%;width:84px;height:84px;border-radius:50%;
     background:radial-gradient(circle,#fff0a8,var(--sun));box-shadow:0 0 50px var(--sun);animation:spin 36s linear infinite;z-index:0;}
   @keyframes spin{to{transform:rotate(360deg)}}
   .hill{position:fixed;left:0;right:0;height:220px;bottom:0;z-index:0;
@@ -72,7 +72,7 @@
 
   .screen{display:none;animation:pop .35s ease;}
   .screen.active{display:block;}
-  @keyframes pop{from{opacity:0;transform:scale(.97) translateY(8px)}to{opacity:1;transform:none}}
+  @keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   .panel{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:20px;}
   h1.title{margin:6px 0 2px;font-size:30px;color:#fff;text-align:center;text-shadow:2px 2px 0 var(--navy),3px 3px 0 rgba(0,0,0,.22);}
   .subtitle{text-align:center;color:#5b4a33;margin:0 0 14px;font-size:16px;}
@@ -80,7 +80,7 @@
 
   /* buttons */
   .btn{font-family:inherit;border:none;border-radius:16px;padding:13px 24px;font-size:19px;font-weight:bold;cursor:pointer;
-    color:#fff;background:var(--grass);box-shadow:0 6px 0 var(--grass-dark);transition:transform .1s;}
+    color:#fff;background:var(--grass);box-shadow:0 6px 0 var(--grass-dark);transition:transform .1s;white-space:normal;line-height:1.15;text-align:center;max-width:100%;}
   .btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--grass-dark);}
   .btn.sun{background:var(--sun);box-shadow:0 6px 0 var(--sun-dark);color:#5a3e00;}
   .btn.blue{background:var(--tzblue);box-shadow:0 6px 0 #0079a8;}
@@ -117,7 +117,7 @@
   .levels{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:15px;}
   .lvl{position:relative;background:linear-gradient(180deg,#fff,#fff4d6);border-radius:20px;padding:15px 12px;text-align:center;
     cursor:pointer;box-shadow:var(--shadow);transition:transform .12s;border:4px solid #fff;}
-  .lvl:hover{transform:translateY(-4px) rotate(-1deg);}
+  .lvl:hover{transform:translateY(-4px);}
   .lvl .emoji{font-size:42px;line-height:1;display:block;margin-bottom:5px;}
   .lvl .nm{font-weight:bold;font-size:15px;}
   .lvl .sub{font-size:11px;color:#7a6a52;margin-top:2px;min-height:26px;}
@@ -317,6 +317,7 @@
     .heroTitle .appWord{font-size:34px;}
     .logo .academy{font-size:15px;}
     .logo .subbrand{font-size:18px;}
+    .btn{font-size:16px;padding:11px 18px;}
     .key.spec{font-size:8px;} .kb{padding:6px;} .kbrow{gap:3px;}
     .missiontitle{font-size:17px;}
     .stickershelf{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -324,13 +325,13 @@
 </style>
 </head>
 <body>
-<div class="sun"></div><div class="hill"></div>
+<div class="sky-sun"></div><div class="hill"></div>
 <div class="acacia" style="left:3%">🌳</div><div class="acacia" style="right:3%;bottom:120px">🌴</div>
 <div id="confetti"></div>
 
 <div class="wrap">
   <div class="topbar" id="topbar" style="display:none;">
-    <button type="button" class="secretbtn logo" id="adminTopTap"><span class="badge"><img src="spa-logo.png" alt="Start Point Academy"></span><span class="word"><span class="academy">Start Point Academy</span><span class="subbrand">Type <b>Safari</b></span></span></button>
+    <button type="button" class="secretbtn logo" id="adminTopTap"><span class="badge"><img src="spa-logo.png" alt="Start Point Academy"></span><span class="word"><span class="academy">Start Point Academy</span><span class="subbrand">Typing <b>Safari</b></span></span></button>
     <div class="toprt">
       <div class="chip" id="userChip">🧒🏾 <span id="userName"></span></div>
       <div class="chip">⭐ <span id="starCount">0</span></div>
@@ -362,7 +363,7 @@
       <button type="button" class="secretbtn brandmark" id="adminWelcomeTap"><img src="spa-logo.png" alt="Start Point Academy"></button>
       <div class="heroAcademy"><span class="dot"></span><span>Start Point Academy</span></div>
     </div>
-    <h1 class="heroTitle"><span class="academyWord">Start Point Academy</span><span class="appWord">🦒 Type Safari</span></h1>
+    <h1 class="heroTitle"><span class="academyWord">Start Point Academy</span><span class="appWord">🦒 Typing Safari</span></h1>
     <p class="subtitle">Typing adventure by Start Point Academy — jifunze kuandika kama bingwa!</p>
     <div class="center" style="margin-bottom:14px;">
       <button class="iconbtn helpbtn" id="helpWelcomeBtn">❓ How to play · Jinsi ya kucheza</button>
@@ -539,7 +540,7 @@
     <div class="adminstatus" id="adminStatus"></div>
     <details class="teacherhelp">
       <summary>Teacher help · Msaada wa mwalimu</summary>
-      <p>Type Safari teaches keyboard confidence through very short lessons, immediate feedback, rescue practice, games, and passport rewards.</p>
+      <p>Typing Safari teaches keyboard confidence through very short lessons, immediate feedback, rescue practice, games, and passport rewards.</p>
       <ul>
         <li>Kids follow glowing keys, finish a stop, earn stars, and collect one sticker per stop.</li>
         <li>Rescue rounds appear when the same key is missed several times, so support stays targeted and simple.</li>
@@ -597,7 +598,7 @@
 /* Each stop: cumulative keys, a real fact (geography/history/civics), and exercise lines. */
 const STOPS = [
   { id:"s1", emoji:"🏫", name:"Start Point", place:"Dar es Salaam",
-    fact:"Welcome to <b>Type Safari</b>! Every great typist starts on the <b>home row</b>. Rest your fingers and feel the little bumps on <b>F</b> and <b>J</b>.",
+    fact:"Welcome to <b>Typing Safari</b>! Every great typist starts on the <b>home row</b>. Rest your fingers and feel the little bumps on <b>F</b> and <b>J</b>.",
     focus:"Home row: F and J", reward:"mango",
     lines:["fff jjj","jjj fff","fj fj fj","jf jf jf","ffjj ffjj","fjf jfj fjf"] },
 
